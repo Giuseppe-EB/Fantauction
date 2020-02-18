@@ -2,25 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 	<url>
 		<loc>http://eagsatea.it/index.html</loc>
-		<lastmod>2020-02-12</lastmod>
+		<lastmod>2020-02-18</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
 	<url>
 		<loc>http://eagsatea.it/pagina-1.html</loc>
-		<lastmod>2020-02-12</lastmod>
+		<lastmod>2020-02-18</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
 	<url>
 		<loc>http://eagsatea.it/pagina-2.html</loc>
-		<lastmod>2020-02-12</lastmod>
+		<lastmod>2020-02-18</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
 	<url>
 		<loc>http://eagsatea.it/pagina-3.html</loc>
-		<lastmod>2020-02-12</lastmod>
+		<lastmod>2020-02-18</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>http://eagsatea.it/homeasta.html</loc>
+		<lastmod>2020-02-18</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
