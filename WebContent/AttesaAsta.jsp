@@ -138,6 +138,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 </div></div></div></div>
 						</div>
 					</div>
+					 LA TUA SQUADRA E': ${squadra.getNome()}
 					<a class="imHidden" href="#imGoToCont" title="Salta il menu di navigazione">Vai ai contenuti</a>
 					<div id="imSideBarContainer">
 						<div id="imSideBarGraphics"></div>
@@ -180,7 +181,17 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				</div></div></div><div id="imCell_3" class="" > <div id="imCellStyleGraphics_3"></div><div id="imCellStyle_3"  data-responsive-sequence-number="2"><div id="imTableObject_6_03">
 					<div class="text-tab-content"  id="imTableObject_6_03_tab0" style="">
 						<div class="text-inner">
-							<table data-minrequestedwidth="257" data-computedwidth="257" style="width: 257px;"><tbody><tr><td style="text-align: center; width: 249px; height: 60px; margin-top: 0px; margin-left: 0px; background-color: rgb(255, 255, 255);" class="imVc">Squadra 1</td></tr><tr><td style="text-align: center; width: 249px; height: 62px; margin-top: 0px; margin-left: 0px; background-color: rgb(255, 255, 255);" class="imVc">Squadra 2</td></tr></tbody></table>
+							<table data-minrequestedwidth="257" data-computedwidth="257" style="width: 257px;">
+								<tbody>
+								<c:forEach var="squadre" items="${squadre}">
+									<tr>
+										<td style="text-align: center; width: 249px; height: 60px; margin-top: 0px; margin-left: 0px; background-color: rgb(255, 255, 255);" class="imVc">
+										 ${squadre.getNome()}
+										</td>
+									</tr>
+								</c:forEach>	
+								</tbody>
+							</table>
 						</div>
 					</div>
 				

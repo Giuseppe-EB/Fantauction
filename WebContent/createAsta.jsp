@@ -3,8 +3,13 @@
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html><!-- HTML5 -->
 <html prefix="og: http://ogp.me/ns#" lang="it-IT" dir="ltr">
+<style>
+team:hover{
+	background-color:white
+}
+</style>
 	<head>
-		<title>Pagina 1 - Prova</title>
+		<title>Page 1</title>
 		<meta charset="utf-8" />
 		<!--[if IE]><meta http-equiv="ImageToolbar" content="False" /><![endif]-->
 		<meta name="generator" content="Incomedia WebSite X5 Professional 14.0.6.1 - www.websitex5.com" />
@@ -206,15 +211,31 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				        LISTA SQUADRE:
 				        	<c:forEach var="squadre" items="${squadre}">
 				        		<br>
-				        		${squadre.getNome()}
+				        		<team class="prova" id="${squadre.getId()}" onclick="selezione(this.id)" >${squadre.getNome()}</team>
 				        		<br>
 				        	</c:forEach>
 				        </c:if>
 				        </z> 
 				        </div>
 				    <script>
-				      function ciao(){
-				      	document.getElementById("panel1").innerHTML="<form class=\"form-horizontal\"><fieldset><legend>Form Name</legend><div class=\"form-group\"> <label class=\"col-md-4 control-label\" for=\"textinput\">NomeAsta</label><div class=\"col-md-4\"> <input id=\"textinput\" name=\"textinput\" placeholder=\"Asta1\" class=\"form-control input-md\" required=\"\" type=\"text\"> </div></div></fieldset></form>";
+				      function selezione(id){ 
+				    	  
+				    	  $.ajax({
+							url : 'Servlet',
+							type : 'post',
+							data : {
+								id : id,
+								key : "seleziona"
+							},
+						success:function(){
+							 document.getElementById(id).innerHTML= "Selezionata";
+							 window.location.href = "/Prova/Servlet?key=seleziona"
+							
+						},
+						error:function(){
+							alert("Errore");
+						}
+						});
 				      }
 				      </script>
 				   

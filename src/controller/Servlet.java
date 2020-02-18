@@ -41,6 +41,12 @@ public class Servlet extends HttpServlet {
 					rd.forward(request, response);
 					return;
 				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("seleziona")) {
+					System.out.println("switch");
+					RequestDispatcher rd = request.getRequestDispatcher("/AttesaAsta.jsp");
+					rd.forward(request, response);
+					return;
+				}
 				RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 				rd.forward(request, response);
 			}
@@ -78,6 +84,13 @@ public class Servlet extends HttpServlet {
 					request.getSession().setAttribute("squadre", squadre);
 					request.getSession().setAttribute("form", "3");
 				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("seleziona")) {
+					int id=Integer.parseInt(request.getParameter("id"));
+					LinkedList<Squadra> squadre = extracted(request);
+					System.out.println(squadre.get(0).getNome());
+					request.getSession().setAttribute("squadra",getSquadraByID(id, squadre) );
+					
+				}
 				doGet(request, response);
 			}
 
@@ -85,4 +98,12 @@ public class Servlet extends HttpServlet {
 	private LinkedList<Squadra> extracted(HttpServletRequest request) {
 		return (LinkedList<Squadra>) request.getSession().getAttribute("squadre");
 	}	
+	
+	private Squadra getSquadraByID(int id, LinkedList<Squadra> squadre) {
+		for (int i=0; i<squadre.size(); i++) {
+			if(squadre.get(i).getId()==id)
+				return squadre.get(i);
+		}
+		return null;
+	}
 }
