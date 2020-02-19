@@ -2,10 +2,10 @@
 <!DOCTYPE html><!-- HTML5 -->
 <html prefix="og: http://ogp.me/ns#" lang="it-IT" dir="ltr">
 	<head>
-		<title>Cerca - Prova</title>
+		<title>Cerca - Prova - WEBSITE X5 DEMO VERSION </title>
 		<meta charset="utf-8" />
 		<!--[if IE]><meta http-equiv="ImageToolbar" content="False" /><![endif]-->
-		<meta name="generator" content="Incomedia WebSite X5 Professional 14.0.6.1 - www.websitex5.com" />
+		<meta name="generator" content="Incomedia WebSite X5 Professional 14.0.6.1 - UNREGISTERED VERSION - www.websitex5.com" />
 		<meta property="og:locale" content="it" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://eagsatea.it/imsearch.php" />
@@ -17,7 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="style/print.css?14-0-6-1" media="print" />
 		<link rel="stylesheet" type="text/css" href="style/style.css?14-0-6-1" media="screen,print" />
 		<link rel="stylesheet" type="text/css" href="style/template.css?14-0-6-1" media="screen" />
-		<link rel="stylesheet" type="text/css" href="pcss/imsearch.css?14-0-6-1-637176253321802441" media="screen,print" />
+		<link rel="stylesheet" type="text/css" href="pcss/imsearch.css?14-0-6-1-637177045811375256" media="screen,print" />
 		<script type="text/javascript" src="res/jquery.js?14-0-6-1"></script>
 		<script type="text/javascript" src="res/x5engine.js?14-0-6-1" data-files-version="14-0-6-1"></script>
 		<script type="text/javascript">
@@ -34,7 +34,7 @@
 				<div id="imFooterBg"></div>
 				<div id="imPage">
 					<div id="imHeader">
-						<h1 class="imHidden">Cerca - Prova</h1>
+						<h1 class="imHidden">Cerca - Prova - WEBSITE X5 DEMO VERSION </h1>
 						<div id="imHeaderObjects"><div id="imHeader_imMenuObject_01_wrapper" class="template-object-wrapper"><div id="imHeader_imCell_1" class="" > <div id="imHeader_imCellStyleGraphics_1"></div><div id="imHeader_imCellStyle_1" ><div id="imHeader_imMenuObject_01"><div class="hamburger-button hamburger-component"><div><div><div class="hamburger-bar"></div><div class="hamburger-bar"></div><div class="hamburger-bar"></div></div></div></div><div class="hamburger-menu-background-container hamburger-component">
 	<div class="hamburger-menu-background menu-mobile menu-mobile-animated hidden">
 		<div class="hamburger-menu-close-button"><span>&times;</span></div>
@@ -46,6 +46,13 @@
 <div class="label-inner-wrapper">
 		<a class="label" href="index.html">
 Home Page		</a>
+</div>
+</div>
+	</li><li class="imMnMnMiddle imPage" data-link-paths="/astaadmin.html">
+<div class="label-wrapper">
+<div class="label-inner-wrapper">
+		<a class="label" href="astaadmin.html">
+AstaAdmin		</a>
 </div>
 </div>
 	</li><li class="imMnMnMiddle imPage" data-link-paths="/homeasta.html">
@@ -97,6 +104,13 @@ $(function () {$('#imHeader_imMenuObject_01 ul li').each(function () {    var $t
 <div class="label-inner-wrapper">
 		<a class="label" href="index.html">
 Home Page		</a>
+</div>
+</div>
+	</li><li class="imMnMnMiddle imPage" data-link-paths="/astaadmin.html">
+<div class="label-wrapper">
+<div class="label-inner-wrapper">
+		<a class="label" href="astaadmin.html">
+AstaAdmin		</a>
 </div>
 </div>
 	</li><li class="imMnMnMiddle imPage" data-link-paths="/homeasta.html">
