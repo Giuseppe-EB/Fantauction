@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,15 +29,14 @@ public class GiocatoreDao {
 			instance= new GiocatoreDao();
 		return instance;
 	}
-	public List<Giocatore> findAll(int id) {
+	public List<Giocatore> findAll() {
 		Connection connection = null;
-		List<Giocatore> giocatori = new LinkedList<>();
+		List<Giocatore> giocatori = new ArrayList<>();
 		try {
 			connection = this.dataSource.getConnection();
 			PreparedStatement statement;
 			String query = "select * from giocatore";
 			statement = connection.prepareStatement(query);
-			statement.setInt(1, id);
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
 				 giocatori.add(new Giocatore(result.getInt("id"),result.getString("nome"),result.getString("cognome"),result.getString("squadra"),result.getString("ruolo")));

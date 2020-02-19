@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,6 @@
 			x5engine.utils.currentPagePath = 'astaadmin.html';
 			x5engine.boot.push(function () { x5engine.imPageToTop.initializeButton({}); });
 		</script>
-		
 	</head>
 	<body>
 		<div id="imPageExtContainer">
@@ -167,17 +167,19 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				<div id="imPageRowContent_1" class="imContentDataContainer">
 				<div id="imGroup_1" class="imHGroup">
 				<div id="imCell_1" class="" > <div id="imCellStyleGraphics_1"></div><div id="imCellStyle_1"  data-responsive-sequence-number="1"><div id="imHTMLObject_7_01" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;">
-				<table class="table7" style="width:100%">
+				<table class="table7" style="width:100%">				
 				 <tr>
 				  <th></th>
-				  <th>Nome</th>
-				  <th>Squadra</th>
+				  	<th>Nome</th>
+				  	<th>Squadra</th>
 				  </tr>
-				 <tr>
-				 <td>ATT</td>
-				 <td>Ciccio Caputo</td>
-				 <td>Sassuolo</td>
-				 </tr> 
+				<c:forEach var="giocatori" items="${giocatori}">
+					 <tr>
+				 		<td>${giocatori.getRuolo()}</td>
+				 		<td>${giocatori.getNome()} ${giocatori.getCognome()}</td>
+				 		<td>${giocatori.getSquadra()}</td>
+				 	</tr>
+				</c:forEach> 
 				</table></div></div></div><div id="imGroup_2" class="imVGroup">
 				<div id="imGroup_3" class="imHGroup">
 				<div id="imCell_4" class="" > <div id="imCellStyleGraphics_4"></div><div id="imCellStyle_4"  data-responsive-sequence-number="2"><div id="imHTMLObject_7_04" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;">
@@ -186,14 +188,50 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				  <th>Squadra</th>
 				  <th>Crediti</th>
 				  </tr>
-				 <tr>
-				 <td>Simos Fc</td>
-				 <td>100</td>
-				 </tr> 
+				<c:forEach var="squadre" items="${squadre}">
+				 	<tr>
+				 		<td> ${squadre.getNome()}</td>
+				 		<td> ${squadre.getCrediti()}</td>
+				 	</tr>
+				</c:forEach>	 
 				</table>
-				</div></div></div><div id="imCell_5" class="" > <div id="imCellStyleGraphics_5"></div><div id="imCellStyle_5"  data-responsive-sequence-number="3"><img id="imObjectImage_7_05" src="images/logo.png.jpg" title="" alt="" /></div></div>
-				</div><div id="imCell_3" class="" > <div id="imCellStyleGraphics_3"></div><div id="imCellStyle_3"  data-responsive-sequence-number="4"><div id="imHTMLObject_7_03" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;"><input type="text" class="bho" value="Crediti"></div></div></div><div id="imGroup_4" class="imHGroup">
-				<div id="imCell_2" class="" > <div id="imCellStyleGraphics_2"></div><div id="imCellStyle_2"  data-responsive-sequence-number="5"><div id="imHTMLObject_7_02" class="imHTMLObject" style="height: 200px; overflow: auto; text-align: center;"><a href="#" class="myButton">Skip</a></div></div></div><div id="imCell_6" class="" > <div id="imCellStyleGraphics_6"></div><div id="imCellStyle_6"  data-responsive-sequence-number="6"><div id="imHTMLObject_7_06" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;"><a href="#" class="acquista">Acquista</a></div></div></div>
+				</div></div></div>
+				<div id="imCell_5" class="" > 
+					<div id="imCellStyleGraphics_5"></div>
+						<div id="imCellStyle_5"  data-responsive-sequence-number="3">
+							<img id="imObjectImage_7_05" src="images/logo.png.jpg" title="" alt="" />
+							<p id="currentPlayer">${giocatori.get(currentPlayer).getNome()}</p>
+						</div>
+				</div>
+				</div>
+				<div id="imCell_3" class="" > 
+					<div id="imCellStyleGraphics_3">
+					</div>
+					<div id="imCellStyle_3"  data-responsive-sequence-number="4">
+						<div id="imHTMLObject_7_03" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;">
+							<input type="text" class="bho" value="Crediti">
+						</div>
+					</div>
+				</div>
+				<div id="imGroup_4" class="imHGroup">
+					<div id="imCell_2" class="" >
+						 <div id="imCellStyleGraphics_2">
+						 </div>
+						 	<div id="imCellStyle_2"  data-responsive-sequence-number="5">
+						 		<div id="imHTMLObject_7_02" class="imHTMLObject" style="height: 200px; overflow: auto; text-align: center;">
+						 			<a href="#" onclick="skip()" class="myButton">Skip</a>
+						 		</div>
+						 	</div>
+					</div>
+					<div id="imCell_6" class="" > 
+						<div id="imCellStyleGraphics_6">
+						</div>
+						<div id="imCellStyle_6"  data-responsive-sequence-number="6">
+							<div id="imHTMLObject_7_06" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;">
+								<a href="#" class="acquista">Acquista</a>
+							</div>
+						</div>
+					</div>
 				</div>
 				</div>
 				</div></div>
@@ -212,4 +250,18 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 		
 		<noscript class="imNoScript"><div class="alert alert-red">Per poter utilizzare questo sito è necessario attivare JavaScript.</div></noscript>
 	</body>
+<script>
+function skip(){
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	console.log("resposnseTEXT=", xhttp.responseText);
+	    	document.getElementById("currentPlayer").innerHTML= xhttp.responseText;
+			}
+		};
+	xhttp.open("post", "/Prova/Servlet?key=skip", true);
+	xhttp.send(); 
+}
+</script>	
 </html>

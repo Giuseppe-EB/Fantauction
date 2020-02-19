@@ -186,7 +186,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 								<c:forEach var="squadre" items="${squadre}">
 									<tr>
 										<td style="text-align: center; width: 249px; height: 60px; margin-top: 0px; margin-left: 0px; background-color: rgb(255, 255, 255);" class="imVc">
-										 ${squadre.getNome()} <p id="${squadre.getId()}"> </p>
+										 ${squadre.getNome()} <p id="Squadra:${squadre.getId()}"> </p>
 										</td>
 									</tr>
 								</c:forEach>	
@@ -227,10 +227,6 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 			    if (this.readyState == 4 && this.status == 200) {
 			    	console.log("resposnseTEXT=", xhttp.responseText);
 			    	var connected = xhttp.responseText.split(",");
-			    	console.log(connected.length);
-			    	for(var i=0; i<connected.length;i++){
-						console.log(connected[i]);
-					}
 			    	connected.pop();
 			    	connected.shift();
 					if(connected.length=="${squadre.size()}"){
@@ -238,7 +234,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 					}			
 					for(var i=0; i<connected.length; i++){
 							console.log(connected[i]);
-							document.getElementById(connected[i]).innerHTML = "Connesso";	
+							document.getElementById("Squadra:"+connected[i]).innerHTML = "Connesso";	
 					}
 				}		
 			};

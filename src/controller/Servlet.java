@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.AstaDao;
+import dao.GiocatoreDao;
 import dao.SquadraDao;
 import model.Asta;
+import model.Giocatore;
 import model.Squadra;
 
 
@@ -48,7 +51,10 @@ public class Servlet extends HttpServlet {
 					return;
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("check")) {
-					RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+					ArrayList<Giocatore> giocatori = (ArrayList<Giocatore>) GiocatoreDao.getInstance().findAll();
+					request.getSession().setAttribute("giocatori", giocatori);
+					request.getSession().setAttribute("currentPlayer", 0);
+					RequestDispatcher rd = request.getRequestDispatcher("/astaAdmin.jsp");
 					rd.forward(request, response);
 					return;
 				}
@@ -92,7 +98,6 @@ public class Servlet extends HttpServlet {
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("seleziona")) {
 					int id=Integer.parseInt(request.getParameter("id"));
 					LinkedList<Squadra> squadre = extracted(request);
-					System.out.println(squadre.get(0).getNome());
 					request.getSession().setAttribute("squadra", getSquadraByID(id, squadre));					
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("check")) {
@@ -101,6 +106,18 @@ public class Servlet extends HttpServlet {
 					ID.addFirst(-1);
 					ID.addLast(-1);
 					response.getWriter().print(ID);
+					return;
+				
+				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("skip")) {
+					int currentPlayer =  (int) request.getSession().getAttribute("currentPlayer");
+					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
+					currentPlayer++;
+					request.getSession().setAttribute("currentPlayer", currentPlayer);
+					AstaDao.getInstance().setCurrentPlayer(currentPlayer, squadra.getIdAsta());
+					@SuppressWarnings("unchecked")
+					ArrayList<Giocatore> giocatori= (ArrayList<Giocatore>) request.getSession().getAttribute("giocatori");
+					response.getWriter().print(giocatori.get(currentPlayer).getNome()+" "+giocatori.get(currentPlayer).getCognome());
 					return;
 				
 				}
