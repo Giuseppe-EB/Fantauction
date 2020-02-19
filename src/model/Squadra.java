@@ -5,12 +5,14 @@ private int id;
 private int idAsta;
 private String Nome;
 private int crediti;
+private boolean connected;
 public Squadra(int id, int idAsta, String nome, int crediti) {
 	super();
 	this.id = id;
 	Nome = nome;
 	this.crediti = crediti;
 	this.idAsta=idAsta;
+	this.setConnected(false);
 }
 public int getId() {
 	return id;
@@ -35,6 +37,12 @@ public int getIdAsta() {
 }
 public void setIdAsta(int idAsta) {
 	this.idAsta = idAsta;
+}
+public boolean isConnected() {
+	return connected;
+}
+public void setConnected(boolean connected) {
+	this.connected = connected;
 }
 
 }

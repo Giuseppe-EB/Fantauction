@@ -47,6 +47,11 @@ public class Servlet extends HttpServlet {
 					rd.forward(request, response);
 					return;
 				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("check")) {
+					RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+					rd.forward(request, response);
+					return;
+				}
 				RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 				rd.forward(request, response);
 			}
@@ -88,8 +93,16 @@ public class Servlet extends HttpServlet {
 					int id=Integer.parseInt(request.getParameter("id"));
 					LinkedList<Squadra> squadre = extracted(request);
 					System.out.println(squadre.get(0).getNome());
-					request.getSession().setAttribute("squadra",getSquadraByID(id, squadre) );
-					
+					request.getSession().setAttribute("squadra", getSquadraByID(id, squadre));					
+				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("check")) {
+					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
+					LinkedList<Integer> ID = SquadraDao.getInstance().getConnectedTeam(squadra.getIdAsta());
+					ID.addFirst(-1);
+					ID.addLast(-1);
+					response.getWriter().print(ID);
+					return;
+				
 				}
 				doGet(request, response);
 			}
@@ -101,8 +114,11 @@ public class Servlet extends HttpServlet {
 	
 	private Squadra getSquadraByID(int id, LinkedList<Squadra> squadre) {
 		for (int i=0; i<squadre.size(); i++) {
-			if(squadre.get(i).getId()==id)
+			if(squadre.get(i).getId()==id) {
+				SquadraDao.getInstance().connect(squadre.get(i));
+				squadre.get(i).setConnected(true);
 				return squadre.get(i);
+			}	
 		}
 		return null;
 	}

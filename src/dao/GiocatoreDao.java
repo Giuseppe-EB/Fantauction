@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Giocatore;
-import model.Squadra;
 
 public class GiocatoreDao {
 	private DataSource dataSource;

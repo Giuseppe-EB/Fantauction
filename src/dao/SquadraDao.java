@@ -73,4 +73,46 @@ public class SquadraDao {
 				throw new RuntimeException(e.getMessage());
 			}
 	}
+	public LinkedList<Integer> getConnectedTeam(int id){
+		Connection connection = null;
+		LinkedList<Integer> connected = new LinkedList<>();
+		try {
+			connection = this.dataSource.getConnection();
+			PreparedStatement statement;
+			String query = "select id from squadra where idAsta=? and connected=true";
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				 connected.add(result.getInt("id"));
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return connected;		
+	}
+	public void connect(Squadra squadra) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "update squadra SET connected = true where id=? and idAsta=?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setInt(1, squadra.getId());
+			statement.setInt(2, squadra.getIdAsta());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+	}
 }

@@ -186,7 +186,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 								<c:forEach var="squadre" items="${squadre}">
 									<tr>
 										<td style="text-align: center; width: 249px; height: 60px; margin-top: 0px; margin-left: 0px; background-color: rgb(255, 255, 255);" class="imVc">
-										 ${squadre.getNome()}
+										 ${squadre.getNome()} <p id="${squadre.getId()}"> </p>
 										</td>
 									</tr>
 								</c:forEach>	
@@ -220,4 +220,31 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 	
 		<noscript class="imNoScript"><div class="alert alert-red">Per poter utilizzare questo sito è necessario attivare JavaScript.</div></noscript>
 	</body>
+	<script>
+		var clock = setInterval(function(){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			    	console.log("resposnseTEXT=", xhttp.responseText);
+			    	var connected = xhttp.responseText.split(",");
+			    	console.log(connected.length);
+			    	for(var i=0; i<connected.length;i++){
+						console.log(connected[i]);
+					}
+			    	connected.pop();
+			    	connected.shift();
+					if(connected.length=="${squadre.size()}"){
+						window.location.href = "/Prova/Servlet?key=check"
+					}			
+					for(var i=0; i<connected.length; i++){
+							console.log(connected[i]);
+							document.getElementById(connected[i]).innerHTML = "Connesso";	
+					}
+				}		
+			};
+			xhttp.open("post", "/Prova/Servlet?key=check", true);
+			xhttp.send(); 
+			
+		}, 3000);
+	</script>
 </html>
