@@ -117,9 +117,15 @@ public class Servlet extends HttpServlet {
 					AstaDao.getInstance().setCurrentPlayer(currentPlayer, squadra.getIdAsta());
 					@SuppressWarnings("unchecked")
 					ArrayList<Giocatore> giocatori= (ArrayList<Giocatore>) request.getSession().getAttribute("giocatori");
-					response.getWriter().print(giocatori.get(currentPlayer).getNome()+" "+giocatori.get(currentPlayer).getCognome());
+					response.getWriter().print("<player id=\"currentPlayerId\" >"+giocatori.get(currentPlayer).getId()+"</player>"+giocatori.get(currentPlayer).getNome()+" "+giocatori.get(currentPlayer).getCognome());
 					return;
 				
+				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("acquista")) {
+					System.out.println(request.getParameter("crediti"));
+					System.out.println(request.getParameter("selected"));
+					System.out.println(request.getParameter("player"));
+					return;
 				}
 				doGet(request, response);
 			}

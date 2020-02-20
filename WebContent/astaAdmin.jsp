@@ -3,6 +3,11 @@
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
+<style>
+player{
+	color :  rgba(255, 255, 255, .4);
+}
+</style>
 <head>
 <meta charset="ISO-8859-1">
 <title>AstaAdmin - Prova - WEBSITE X5 DEMO VERSION </title>
@@ -200,7 +205,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 					<div id="imCellStyleGraphics_5"></div>
 						<div id="imCellStyle_5"  data-responsive-sequence-number="3">
 							<img id="imObjectImage_7_05" src="images/logo.png.jpg" title="" alt="" />
-							<p id="currentPlayer">${giocatori.get(currentPlayer).getNome()}</p>
+							<p id="currentPlayer"><player id="currentPlayerId" >${giocatori.get(currentPlayer).getId()}</player> ${giocatori.get(currentPlayer).getNome()}</p>
 						</div>
 				</div>
 				</div>
@@ -209,7 +214,12 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 					</div>
 					<div id="imCellStyle_3"  data-responsive-sequence-number="4">
 						<div id="imHTMLObject_7_03" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;">
-							<input type="text" class="bho" value="Crediti">
+							<input id="crediti" name="crediti" class="bho" placeholder="Crediti">
+							<select name="select">
+									<c:forEach var="squadre" items="${squadre}">
+									<option selected="selected" value="${squadre.getId()}"> ${squadre.getNome()} </option>
+									</c:forEach>
+							</select><br/> 		
 						</div>
 					</div>
 				</div>
@@ -228,7 +238,8 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 						</div>
 						<div id="imCellStyle_6"  data-responsive-sequence-number="6">
 							<div id="imHTMLObject_7_06" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;">
-								<a href="#" class="acquista">Acquista</a>
+							
+								<input onclick="acquista()" class="bho" type="submit" class="acquista" value="Acquista">
 							</div>
 						</div>
 					</div>
@@ -262,6 +273,25 @@ function skip(){
 		};
 	xhttp.open("post", "/Prova/Servlet?key=skip", true);
 	xhttp.send(); 
+}
+function acquista(id){ 
+	 
+	  $.ajax({
+		url : 'Servlet',
+		type : 'post',
+		data : {
+			crediti : $('input[name="crediti"]').val(),
+			selected: $('select[name="select"]').val(),
+			player : document.getElementById("currentPlayerId").innerHTML,
+			key : "acquista"
+		},
+	success:function(){
+		skip();
+	},
+	error:function(){
+		alert("Errore");
+	}
+	});
 }
 </script>	
 </html>
