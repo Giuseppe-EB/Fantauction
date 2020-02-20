@@ -196,7 +196,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				<c:forEach var="squadre" items="${squadre}">
 				 	<tr>
 				 		<td> ${squadre.getNome()}</td>
-				 		<td> ${squadre.getCrediti()}</td>
+				 		<td id="${squadre.getId()}"> ${squadre.getCrediti()}</td>
 				 	</tr>
 				</c:forEach>	 
 				</table>
@@ -274,6 +274,18 @@ function skip(){
 	xhttp.open("post", "/Prova/Servlet?key=skip", true);
 	xhttp.send(); 
 }
+function refresh(selected){
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	console.log("resposnseTEXT=", xhttp.responseText);
+	    	document.getElementById(selected).innerHTML= xhttp.responseText;
+			}
+		};
+	xhttp.open("post", "/Prova/Servlet?key=refresh", true);
+	xhttp.send(); 
+}
 function acquista(id){ 
 	 
 	  $.ajax({
@@ -286,10 +298,11 @@ function acquista(id){
 			key : "acquista"
 		},
 	success:function(){
+		refresh( $('select[name="select"]').val());
 		skip();
 	},
 	error:function(){
-		alert("Errore");
+		alert("Il giocatore è già stato acquistato da un'altra squadra");
 	}
 	});
 }

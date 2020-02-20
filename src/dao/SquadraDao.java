@@ -33,7 +33,7 @@ public class SquadraDao {
 		try {
 			connection = this.dataSource.getConnection();
 			PreparedStatement statement;
-			String query = "select * from squadra where idAsta=?";
+			String query = "select * from squadra where idAsta=? order by id";
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, id);
 			ResultSet result = statement.executeQuery();
@@ -104,6 +104,26 @@ public class SquadraDao {
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, squadra.getId());
 			statement.setInt(2, squadra.getIdAsta());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+	}
+	public void addPlayer(int idSquadra, int idAsta, int idGiocatore, int crediti) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String query = "insert into giocatore_squadra(idGiocatore, idSquadra, idAsta, prezzo) values(?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, idGiocatore);
+			statement.setInt(2, idSquadra);
+			statement.setInt(3, idAsta);
+			statement.setInt(4, crediti);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

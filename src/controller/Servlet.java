@@ -122,9 +122,19 @@ public class Servlet extends HttpServlet {
 				
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("acquista")) {
-					System.out.println(request.getParameter("crediti"));
-					System.out.println(request.getParameter("selected"));
-					System.out.println(request.getParameter("player"));
+					int crediti = Integer.parseInt(request.getParameter("crediti"));
+					int idSquadra = Integer.parseInt(request.getParameter("selected"));
+					int idGiocatore = Integer.parseInt(request.getParameter("player"));
+					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
+					SquadraDao.getInstance().addPlayer(idSquadra, squadra.getIdAsta(), idGiocatore, crediti);
+					LinkedList<Squadra> squadre = (LinkedList<Squadra>) SquadraDao.getInstance().findAll(squadra.getIdAsta());
+					request.getSession().setAttribute("squadre", squadre);
+					request.getSession().setAttribute("ultimoAcquisto", squadre.get(idSquadra-1).getCrediti() );
+					return;
+				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("refresh")) {
+					int crediti = (int) request.getSession().getAttribute("ultimoAcquisto");
+					response.getWriter().print(crediti);
 					return;
 				}
 				doGet(request, response);
