@@ -89,4 +89,25 @@ public class AstaDao {
 			}
 		}
 	}
+	public int getCurrentPlayer(int idAsta) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String query = "select current_player from asta where id=?";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, idAsta);
+			ResultSet result = statement.executeQuery();
+			if(result.next())
+				return result.getInt("current_player");
+			else 
+				return -1;
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+	}
 }

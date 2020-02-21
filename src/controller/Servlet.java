@@ -73,6 +73,7 @@ public class Servlet extends HttpServlet {
 					{
 						squadre.add(new Squadra(i,asta.getId(),"",0));
 					}
+					request.getSession().setAttribute("admin", true);
 					request.getSession().setAttribute("squadre", squadre);
 					request.getSession().setAttribute("form", "2");
 				}
@@ -88,9 +89,16 @@ public class Servlet extends HttpServlet {
 					
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("partecipa")) {
+					String nome=request.getParameter("nome");
+					if(request.getParameter("nome").equalsIgnoreCase("Asta1*")) {
+						request.getSession().setAttribute("admin", true);
+						nome = "Asta1";
+					}
+					else
+						request.getSession().setAttribute("admin", false);
 					LinkedList<Squadra> squadre = (LinkedList<Squadra>) SquadraDao.getInstance().
 							findAll(AstaDao.getInstance().
-									getId(new Asta(request.getParameter("nome"), 
+									getId(new Asta(nome, 
 											request.getParameter("password"), 0)));
 					request.getSession().setAttribute("squadre", squadre);
 					request.getSession().setAttribute("form", "3");
@@ -137,6 +145,28 @@ public class Servlet extends HttpServlet {
 					response.getWriter().print(crediti);
 					return;
 				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("refreshS")) {
+					LinkedList<Squadra> squadre = extracted(request);
+					Squadra squadra = modify(squadre, (LinkedList<Squadra>) SquadraDao.getInstance().findAll(squadre.get(0).getIdAsta()));
+					response.getWriter().print(squadra.getId()+","+squadra.getCrediti());
+					return;
+				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("syncro")) {
+					LinkedList<Squadra> squadre = extracted(request);
+					int currentPlayer = (int) request.getSession().getAttribute("currentPlayer");
+					System.out.println(currentPlayer);
+					if(AstaDao.getInstance().getCurrentPlayer(squadre.get(0).getIdAsta())!=currentPlayer) {
+							if(equals(squadre, (LinkedList<Squadra>) SquadraDao.getInstance().findAll(squadre.get(0).getIdAsta())))
+							{	response.getWriter().print("skip");
+								return;
+							}
+							System.out.println("aggiorno");
+							response.getWriter().print("refresh");
+							return;
+					}
+					return;
+				}
+				
 				doGet(request, response);
 			}
 
@@ -152,6 +182,20 @@ public class Servlet extends HttpServlet {
 				squadre.get(i).setConnected(true);
 				return squadre.get(i);
 			}	
+		}
+		return null;
+	}
+	private boolean equals(LinkedList<Squadra> S1, LinkedList<Squadra> S2) {
+		for(int i=0; i<S1.size(); i++) {
+			if(S1.get(i).getCrediti()!=S2.get(i).getCrediti())
+				return false;
+		}
+		return true;
+	}
+	private Squadra modify(LinkedList<Squadra> S1, LinkedList<Squadra> S2) {
+		for(int i=0; i<S1.size(); i++) {
+			if(S1.get(i).getCrediti()!=S2.get(i).getCrediti())
+				return S2.get(i);
 		}
 		return null;
 	}
