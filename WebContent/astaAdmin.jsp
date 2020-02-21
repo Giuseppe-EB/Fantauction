@@ -229,7 +229,12 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 						 </div>
 						 	<div id="imCellStyle_2"  data-responsive-sequence-number="5">
 						 		<div id="imHTMLObject_7_02" class="imHTMLObject" style="height: 200px; overflow: auto; text-align: center;">
+						 		<c:if test="${admin == true }">
 						 			<a href="#" onclick="skip()" class="myButton">Skip</a>
+						 		</c:if>
+						 		<c:if test="${admin == false }">
+						 			<button onclick="suca()"> Suca </button>
+						 		</c:if>
 						 		</div>
 						 	</div>
 					</div>
@@ -238,8 +243,10 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 						</div>
 						<div id="imCellStyle_6"  data-responsive-sequence-number="6">
 							<div id="imHTMLObject_7_06" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;">
-							
+							<c:if test="${admin == true }">
 								<input onclick="acquista()" class="bho" type="submit" class="acquista" value="Acquista">
+							</c:if>	
+							
 							</div>
 						</div>
 					</div>
@@ -258,10 +265,15 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				<span class="imHidden"><a href="#imGoToCont" title="Rileggi i contenuti della pagina">Torna ai contenuti</a></span>
 			</div>
 		</div>
-		
+		<c:if test="${admin == true }">
+		<button onclick="fine()" class="bho" type="submit" class="acquista" value="Termina Asta">Succhiamelo</button>
+		</c:if>
 		<noscript class="imNoScript"><div class="alert alert-red">Per poter utilizzare questo sito è necessario attivare JavaScript.</div></noscript>
 	</body>
 <script>
+function fine(){
+	window.location.href = "/Prova/Servlet?key=fine"
+}
 function skip(){
 
 	var xhttp = new XMLHttpRequest();
@@ -305,6 +317,50 @@ function acquista(id){
 		alert("Il giocatore è già stato acquistato da un'altra squadra");
 	}
 	});
+}
+function syncro(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	var element = xhttp.responseText.split(",");
+	    	console.log("resposnseTEXT=", xhttp.responseText);
+	    	document.getElementById(element[0]).innerHTML= element[1];
+			}
+		};
+	xhttp.open("post", "/Prova/Servlet?key=refreshS", true);
+	xhttp.send();
+	
+}
+if("${admin}"=="false"){
+var clock = setInterval(function(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	console.log("resposnseTEXT=", xhttp.responseText);
+	    	if(xhttp.responseText=="skip")
+	    		skip();
+	    	else if(xhttp.responseText=="refresh")
+	    	{	syncro();
+	    		skip();
+	    	}
+	    		
+	    	else alert("nessuna modifica");
+	    	/*var connected = xhttp.responseText.split(",");
+	    	connected.pop();
+	    	connected.shift();
+			if(connected.length=="${squadre.size()}"){
+				window.location.href = "/Prova/Servlet?key=check"
+			}			
+			for(var i=0; i<connected.length; i++){
+					console.log(connected[i]);
+					document.getElementById("Squadra:"+connected[i]).innerHTML = "Connesso";	
+			}*/
+		}		
+	};
+	xhttp.open("post", "/Prova/Servlet?key=syncro", true);
+	xhttp.send(); 
+	
+}, 10000);
 }
 </script>	
 </html>
