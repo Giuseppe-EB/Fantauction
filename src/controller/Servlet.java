@@ -58,6 +58,13 @@ public class Servlet extends HttpServlet {
 					rd.forward(request, response);
 					return;
 				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("fine")) {
+					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
+					request.getSession().setAttribute("giocatori_squadra", SquadraDao.getInstance().tabella(squadra.getIdAsta()));
+					RequestDispatcher rd = request.getRequestDispatcher("/riepilogoAsta.jsp");
+					rd.forward(request, response);
+					return;
+				}
 				RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 				rd.forward(request, response);
 			}
@@ -137,9 +144,13 @@ public class Servlet extends HttpServlet {
 					response.getWriter().print(crediti);
 					return;
 				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("fine")) {
+					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
+					request.getSession().setAttribute("giocatori_squadra", SquadraDao.getInstance().tabella(squadra.getIdAsta()));
+					
+				}
 				doGet(request, response);
 			}
-
 	@SuppressWarnings("unchecked")
 	private LinkedList<Squadra> extracted(HttpServletRequest request) {
 		return (LinkedList<Squadra>) request.getSession().getAttribute("squadre");

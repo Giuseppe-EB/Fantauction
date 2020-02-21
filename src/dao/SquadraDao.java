@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Squadra;
+import model.giocatore1;
+import model.squadra_giocatore;
 
 public class SquadraDao {
 	private DataSource dataSource;
@@ -135,4 +137,37 @@ public class SquadraDao {
 			}
 		}
 	}
+	public LinkedList<squadra_giocatore> tabella(int idasta)
+	{	
+		LinkedList<squadra_giocatore> giocatori_squadra= new LinkedList<>();
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String query = "select s.nome as NomeSquadra, g.nome as NomeGiocatore,  g1.prezzo, g.cognome as Cognome from squadra s, giocatore g, giocatore_squadra g1 where g.id=g1.idgiocatore and s.id=g1.idsquadra and g1.idasta=? and s.idasta=g1.idasta group by s.nome,g.nome,g.cognome,g1.prezzo";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, idasta);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				System.out.println("en");
+				if(giocatori_squadra.isEmpty())
+					giocatori_squadra.add(new squadra_giocatore(result.getString("NomeSquadra")));
+				if(giocatori_squadra.getLast().getNome().equalsIgnoreCase(result.getString("NomeSquadra")))
+					giocatori_squadra.getLast().add(new giocatore1(result.getString("NomeGiocatore"),result.getString("Cognome"),result.getInt("prezzo")));
+				else
+				{
+					giocatori_squadra.add(new squadra_giocatore(result.getString("NomeSquadra")));
+					giocatori_squadra.getLast().add(new giocatore1(result.getString("NomeGiocatore"),result.getString("Cognome"), result.getInt("prezzo")));
+				}
+			}	
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return giocatori_squadra;
+	}
+	
 }

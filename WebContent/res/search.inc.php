@@ -11,7 +11,8 @@ $imSettings['search']['general'] = array(
 		'4' => 'pagina-2.html',
 		'5' => 'pagina-3.html',
 		'6' => 'homeasta.html',
-		'7' => 'astaadmin.html'
+		'7' => 'astaadmin.html',
+		'8' => 'riepilogoasta.html'
 	),
 	'extendedScope' => array(
 	)

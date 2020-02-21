@@ -17,7 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="style/print.css?14-0-6-1" media="print" />
 		<link rel="stylesheet" type="text/css" href="style/style.css?14-0-6-1" media="screen,print" />
 		<link rel="stylesheet" type="text/css" href="style/template.css?14-0-6-1" media="screen" />
-		<link rel="stylesheet" type="text/css" href="pcss/imsearch.css?14-0-6-1-637177045811375256" media="screen,print" />
+		<link rel="stylesheet" type="text/css" href="pcss/imsearch.css?14-0-6-1-637178217679110555" media="screen,print" />
 		<script type="text/javascript" src="res/jquery.js?14-0-6-1"></script>
 		<script type="text/javascript" src="res/x5engine.js?14-0-6-1" data-files-version="14-0-6-1"></script>
 		<script type="text/javascript">
@@ -46,6 +46,13 @@
 <div class="label-inner-wrapper">
 		<a class="label" href="index.html">
 Home Page		</a>
+</div>
+</div>
+	</li><li class="imMnMnMiddle imPage" data-link-paths="/riepilogoasta.html">
+<div class="label-wrapper">
+<div class="label-inner-wrapper">
+		<a class="label" href="riepilogoasta.html">
+riepilogoAsta		</a>
 </div>
 </div>
 	</li><li class="imMnMnMiddle imPage" data-link-paths="/astaadmin.html">
@@ -104,6 +111,13 @@ $(function () {$('#imHeader_imMenuObject_01 ul li').each(function () {    var $t
 <div class="label-inner-wrapper">
 		<a class="label" href="index.html">
 Home Page		</a>
+</div>
+</div>
+	</li><li class="imMnMnMiddle imPage" data-link-paths="/riepilogoasta.html">
+<div class="label-wrapper">
+<div class="label-inner-wrapper">
+		<a class="label" href="riepilogoasta.html">
+riepilogoAsta		</a>
 </div>
 </div>
 	</li><li class="imMnMnMiddle imPage" data-link-paths="/astaadmin.html">

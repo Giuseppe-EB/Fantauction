@@ -23,8 +23,8 @@
 	$.extend(s.imShowBox, {
 		"effect": "none", "customEffect": "generic animated none",
 		'transitionEffect' : 'fade',
-		'fullScreenEnabled' : true,
-		'zoomEnabled' : true,
+		'fullScreenEnabled' : false,
+		'zoomEnabled' : false,
 		'showProgress' : true,
 		'shadow' : '',
 		'background' : 'rgba(55, 71, 79, 1)',

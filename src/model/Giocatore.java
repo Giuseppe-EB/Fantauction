@@ -2,10 +2,11 @@ package model;
 
 public class Giocatore {
 private int id;
-private String nome;
-private String cognome;
+protected String nome;
+protected String cognome;
 private String squadra;
 private String ruolo;
+public Giocatore() {}
 public Giocatore(int id,String nome,String cognome,String squadra,String ruolo)
 {
 	this.id=id;
