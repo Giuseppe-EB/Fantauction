@@ -19,8 +19,8 @@ import model.Giocatore;
 import model.Squadra;
 
 
-@WebServlet("/Servlet")
-public class Servlet extends HttpServlet {
+@WebServlet("/auction")
+public class Auction extends HttpServlet {
 	private static final long serialVersionUID = 2L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

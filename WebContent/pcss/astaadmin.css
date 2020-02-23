@@ -17,7 +17,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 #imSideBar_imCellStyle_1 { position: relative; box-sizing: border-box; text-align: center; z-index: 2;}
 #imSideBar_imCellStyleGraphics_1 { position: absolute; top: 0px; bottom: 0px; background-color: transparent; }
 #imSideBar_imObjectImage_01 { width: 100%; vertical-align: top; }
-#imStickyBar_imCell_2 { display: block; position: relative; }
+#imStickyBar_imCell_2 { display: block; position: relative; bottom:329px; right:78px; }
 #imStickyBar_imCellStyle_2 { position: relative; box-sizing: border-box; text-align: center; z-index: 2;}
 #imStickyBar_imCellStyleGraphics_2 { position: absolute; top: 0px; bottom: 0px; background-color: transparent; }
 #imStickyBar_imObjectTitle_02 {overflow: hidden; text-align: center; }
@@ -26,7 +26,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 #imStickyBar_imObjectTitle_02_text a { color: rgba(255, 255, 255, 1); word-wrap: break-word; max-width: 100%;}
 #imStickyBar_imObjectTitle_02_text a{ text-decoration: none; }
 #imStickyBar_imCell_3 { display: block; position: relative; }
-#imStickyBar_imCellStyle_3 { position: relative; box-sizing: border-box; text-align: center; z-index: 102;}
+#imStickyBar_imCellStyle_3 { position: relative; box-sizing: border-box; text-align: center; z-index: 102; bottom:30px; right:139px;}
 #imStickyBar_imCellStyleGraphics_3 { position: absolute; top: 0px; bottom: 0px; background-color: transparent; }
 .label-wrapper .menu-item-icon {
 max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto; z-index: 0; 
@@ -123,7 +123,7 @@ font-weight: bold;
 	top:1px;
 }
 
-        #imCell_6 { display: block; position: relative; }
+        #imCell_6 { display: block; position: relative; bottom:328px; right:233px; }
 #imCellStyle_6 { position: relative; box-sizing: border-box; text-align: center; z-index: 2;}
 #imCellStyleGraphics_6 { position: absolute; top: 3px; bottom: 3px; background-color: transparent; }
 .acquista {

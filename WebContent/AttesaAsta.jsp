@@ -4,6 +4,22 @@
 <script type=”text/javascript” src=”http://www.google.com/jsapi?key=ABQIAAAAqJTkrAjlGEQ5_cEfzzAJgRTQX3UUxEGSqOGjz60gOBbhvyrQnBRqzWIrzxDjqGSAC-EoQLEWgDn0mA”></script>
 <!DOCTYPE html><!-- HTML5 -->
 <html prefix="og: http://ogp.me/ns#" lang="it-IT" dir="ltr">
+<style>
+cerchio{
+	width:100px;
+	height:100px;
+	border-radius:50px;
+	background:green;
+	color :  rgba(255, 255, 255, 0);
+}
+cerchioR{
+	width:100px;
+	height:100px;
+	border-radius:50px;
+	background:red;
+	color :  rgba(255, 255, 255, 0);
+}
+</style>
 <head>
 <title>HomeAsta - Prova</title>
 		<meta charset="utf-8" />
@@ -48,7 +64,7 @@
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
 		<a class="label" href="index.html">
-Home Page		</a>
+Home Page 		</a>
 </div>
 </div>
 	</li><li class="imMnMnMiddle imPage" data-link-paths="/homeasta.html">
@@ -186,7 +202,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 								<c:forEach var="squadre" items="${squadre}">
 									<tr>
 										<td style="text-align: center; width: 249px; height: 60px; margin-top: 0px; margin-left: 0px; background-color: rgb(255, 255, 255);" class="imVc">
-										 ${squadre.getNome()} <p id="Squadra:${squadre.getId()}"> </p>
+										 ${squadre.getNome()}          &#32;&#32;&#32;&#32; <l id="Squadra: ${squadre.getId()}"><cerchioR>....</cerchioR> </l>
 										</td>
 									</tr>
 								</c:forEach>	
@@ -220,27 +236,31 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 	
 		<noscript class="imNoScript"><div class="alert alert-red">Per poter utilizzare questo sito è necessario attivare JavaScript.</div></noscript>
 	</body>
+	<script type="text/javascript" src="js/attesaAsta.js">	</script>
 	<script>
-		var clock = setInterval(function(){
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-			    if (this.readyState == 4 && this.status == 200) {
-			    	console.log("resposnseTEXT=", xhttp.responseText);
-			    	var connected = xhttp.responseText.split(",");
-			    	connected.pop();
-			    	connected.shift();
-					if(connected.length=="${squadre.size()}"){
-						window.location.href = "/Prova/Servlet?key=check"
-					}			
-					for(var i=0; i<connected.length; i++){
-							console.log(connected[i]);
-							document.getElementById("Squadra:"+connected[i]).innerHTML = "Connesso";	
-					}
-				}		
-			};
-			xhttp.open("post", "/Prova/Servlet?key=check", true);
-			xhttp.send(); 
-			
-		}, 3000);
-	</script>
+	var clock = setInterval(function(){
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		    	console.log("resposnseTEXT=", xhttp.responseText);
+		    	var connected = xhttp.responseText.split(",");
+		    	connected.pop();
+		    	connected.shift();			
+				for(var i=0; i<connected.length; i++){
+						console.log(connected[i]);
+						var s1="Squadra:";
+						var s2=connected[i];
+						var ID = s1.concat(s2);
+						console.log(ID);
+						document.getElementById(ID).innerHTML = "<cerchio>....</cerchio>";	
+				}
+				if(connected.length=="${squadre.size()}"){
+					window.location.href = "/fantauction.it/auction?key=check"
+				}
+			}		
+		};
+		xhttp.open("post", "/fantauction.it/auction?key=check", true);
+		xhttp.send(); 
+		
+	}, 3000);</script>
 </html>

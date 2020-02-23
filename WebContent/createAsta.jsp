@@ -152,7 +152,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				      <z id="panel1"> 
 				     <c:if test="${form != 4}">
 				      <c:if test="${form == 1}">
-				        <form action="<%="/Prova/Servlet?key=form1"%>" method="post" class="form-horizontal">
+				        <form action="<%="/fantauction.it/auction?key=form1"%>" method="post" class="form-horizontal">
 				            <div class="form-group"> <label class="col-md-4 control-label" for="textinput">Nome
 				                Asta</label>
 				              <div class="col-md-4"> 
@@ -182,7 +182,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				        </form>
 				        </c:if>
 				      <c:if test="${form == 2}">
-				        <form action="<%="/Prova/Servlet?key=form2"%>" method="post" class="form-horizontal">
+				        <form action="<%="/fantauction.it/auction?key=form2"%>" method="post" class="form-horizontal">
 				        	<fieldset>
 				        		<legend>Form Name</legend>
 				        		<div class="form-group"> 
@@ -201,7 +201,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				        </c:if>
 				       </c:if>
 				       <c:if test="${form == 4}"> 
-				       	<form action="<%="/Prova/Servlet?key=partecipa"%>" method="post" class="form-horizontal">
+				       	<form action="<%="/fantauction.it/auction?key=partecipa"%>" method="post" class="form-horizontal">
 				       		<input id="nome" name="nome" placeholder="NomeAsta" class="form-control input-md" required type="text">
 				        	<input id="password" name="password" placeholder="Password" class="form-control input-md" required type="password">
 				        	<input type="submit" class="avanti" id="submitButton" value="Avanti">	 
@@ -217,27 +217,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				        </c:if>
 				        </z> 
 				        </div>
-				    <script>
-				      function selezione(id){ 
-				    	  
-				    	  $.ajax({
-							url : 'Servlet',
-							type : 'post',
-							data : {
-								id : id,
-								key : "seleziona"
-							},
-						success:function(){
-							 document.getElementById(id).innerHTML= "Selezionata";
-							 window.location.href = "/Prova/Servlet?key=seleziona"
-							
-						},
-						error:function(){
-							alert("Errore");
-						}
-						});
-				      }
-				      </script>
+				    <script type="text/javascript" src = "js/createAsta.js"></script>
 				   
 				  </body>
 				</html>

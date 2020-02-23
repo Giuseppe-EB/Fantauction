@@ -143,14 +143,14 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 							<img class="card__image"src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT12KiIrd_cwkUQWH9cA6LVsNM51m69I_Ak1QXrCuTK01yNGaAC" alt="Nature">
 							<div class="card__copy">
 								<h3>Crea la TUA asta</h3>
-								<p><a href="/Prova/Servlet?key=form1" class="button"> Crea Asta</a></p>
+								<p><a href="/fantauction.it/auction?key=form1" class="button"> Crea Asta</a></p>
 							</div>
 						</div>
 						<div class="card">
 							<img class="card__image"src="https://casinamia.com/wp-content/uploads/2018/06/banca-300x300.jpg" alt="Nature">
 							<div class="card__copy">
 								<h3>Partecipa ad un'asta</h3>
-								<p><a href="/Prova/Servlet?key=partecipa" class="button"> Partecipa ad asta</a></p>
+								<p><a href="/fantauction.it/auction?key=partecipa" class="button"> Partecipa ad asta</a></p>
 							</div>
 						</div>
 					</section></div></div></div></div>
