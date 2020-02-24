@@ -1,21 +1,21 @@
 <?php
 
 // Users data
-$imSettings['access']['webregistrations_gid'] = 'vu9zx3w4';
+$imSettings['access']['webregistrations_gid'] = 'dm4sdm9e';
 $imSettings['access']['users'] = array(
-	'simos2012@gmail.com' => array(
-		'groups' => array('ja4numrc'),
-		'id' => 'szng33lv',
+	'joe.masuzzo@virgilio.it' => array(
+		'groups' => array('sm2et5ge'),
+		'id' => 'br75a6oj',
 		'firstname' => 'Admin',
 		'lastname' => '',
-		'password' => 'dlr8u307',
-		'email' => 'simos2012@gmail.com',
+		'password' => 'yzugyywu',
+		'email' => 'joe.masuzzo@virgilio.it',
 		'page' => false
 	)
 );
 
 // Admins list
-$imSettings['access']['admins'] = array('szng33lv');
+$imSettings['access']['admins'] = array('br75a6oj');
 
 // Page/Users permissions
 $imSettings['access']['pages'] = array();

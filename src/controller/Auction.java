@@ -28,25 +28,25 @@ public class Auction extends HttpServlet {
 				{	
 					if(request.getSession().getAttribute("form")==null)
 						request.getSession().setAttribute("form", "1");
-					RequestDispatcher rd = request.getRequestDispatcher("/createAsta.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/building.jsp");
 					rd.forward(request, response);
 					return;
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("form2")) {
-					RequestDispatcher rd = request.getRequestDispatcher("/createAsta.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/building.jsp");
 					rd.forward(request, response);
 					return;
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("partecipa")) {
 					if(request.getSession().getAttribute("form")==null)
 						request.getSession().setAttribute("form", "4");
-					RequestDispatcher rd = request.getRequestDispatcher("/createAsta.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/building.jsp");
 					rd.forward(request, response);
 					return;
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("seleziona")) {
 					System.out.println("switch");
-					RequestDispatcher rd = request.getRequestDispatcher("/AttesaAsta.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/waitingroom.jsp");
 					rd.forward(request, response);
 					return;
 				}
@@ -54,18 +54,18 @@ public class Auction extends HttpServlet {
 					ArrayList<Giocatore> giocatori = (ArrayList<Giocatore>) GiocatoreDao.getInstance().findAll();
 					request.getSession().setAttribute("giocatori", giocatori);
 					request.getSession().setAttribute("currentPlayer", 0);
-					RequestDispatcher rd = request.getRequestDispatcher("/astaAdmin.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/auction.jsp");
 					rd.forward(request, response);
 					return;
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("fine")) {
 					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
 					request.getSession().setAttribute("giocatori_squadra", SquadraDao.getInstance().tabella(squadra.getIdAsta()));
-					RequestDispatcher rd = request.getRequestDispatcher("/riepilogoAsta.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/summary.jsp");
 					rd.forward(request, response);
 					return;
 				}
-				RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 				rd.forward(request, response);
 			}
 
@@ -132,7 +132,10 @@ public class Auction extends HttpServlet {
 					AstaDao.getInstance().setCurrentPlayer(currentPlayer, squadra.getIdAsta());
 					@SuppressWarnings("unchecked")
 					ArrayList<Giocatore> giocatori= (ArrayList<Giocatore>) request.getSession().getAttribute("giocatori");
-					response.getWriter().print("<player id=\"currentPlayerId\" >"+giocatori.get(currentPlayer).getId()+"</player>"+giocatori.get(currentPlayer).getNome()+" "+giocatori.get(currentPlayer).getCognome());
+					response.getWriter().print("<img id=\"imObjectImage_7_05\" src=\""+giocatori.get(currentPlayer).getId()+"\" title=\"\" alt=\"\" />\r\n" + 
+							"					    <player id=\"currentPlayerId\" >"+giocatori.get(currentPlayer).getId()+"</player>\r\n" + 
+							"					    <p class=\"player\">"+giocatori.get(currentPlayer).getNome()+"\r\n" + 
+							"					    <label class=\"player-S\">"+giocatori.get(currentPlayer).getCognome()+"</label>");
 					return;
 				
 				}

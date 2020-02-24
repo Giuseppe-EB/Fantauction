@@ -7,21 +7,21 @@
 */
 
 $imSettings['general'] = array(
-	'url' => 'http://eagsatea.it/',
-	'homepage_url' => 'http://eagsatea.it/index.html',
+	'url' => 'http://yubbnjk.it/',
+	'homepage_url' => 'http://yubbnjk.it/index.html',
 	'icon' => '',
 	'version' => '14.0.6.1',
-	'sitename' => 'Prova',
+	'sitename' => 'SitoAsta',
 	'public_folder' => '',
-	'salt' => 'qzcfx7c0049u2jyikftrltle1ehbd4r856lrs',
+	'salt' => '1wdvnmql3pciedcj6i5k3cr9xds2tbjlg7hz',
 	'use_common_email_sender_address' => false,
 	'common_email_sender_addres' => ''
 );
 
 
 $imSettings['admin'] = array(
-	'notification_public_key' => '47dc651ac4ca02e7',
-	'notification_private_key' => '316e3ef542d8bc44',
+	'notification_public_key' => '00b662339f6ce5bb',
+	'notification_private_key' => '16f7bc23ddce3ae9',
 	'enable_manager_notifications' => false,
 	'theme' => 'orange'
 );

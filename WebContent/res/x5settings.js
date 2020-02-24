@@ -4,7 +4,7 @@
 		p = s.currentPath,
 		b = x.boot;
 
-	s.siteId = 'ED5287E5098AF56C452D3A569E94CDF7';
+	s.siteId = 'CBD6F312B84D6302E93416AACAB02E9C';
 	s.version = '14-0-6-1';
 	b.push(function () {
 		x.setupDateTime();
@@ -23,8 +23,8 @@
 	$.extend(s.imShowBox, {
 		"effect": "none", "customEffect": "generic animated none",
 		'transitionEffect' : 'fade',
-		'fullScreenEnabled' : false,
-		'zoomEnabled' : false,
+		'fullScreenEnabled' : true,
+		'zoomEnabled' : true,
 		'showProgress' : true,
 		'shadow' : '',
 		'background' : 'rgba(55, 71, 79, 1)',

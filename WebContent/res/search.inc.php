@@ -7,12 +7,13 @@ $imSettings['search']['general'] = array(
 	'menu_position' => 'left',
 	'defaultScope' => array(
 		'0' => 'index.html',
-		'3' => 'pagina-1.html',
-		'4' => 'pagina-2.html',
-		'5' => 'pagina-3.html',
-		'6' => 'homeasta.html',
-		'7' => 'astaadmin.html',
-		'8' => 'riepilogoasta.html'
+		'3' => 'building.html',
+		'4' => 'auction.html',
+		'5' => 'testpage.html',
+		'6' => 'building_.html',
+		'7' => 'waitingroom.html',
+		'8' => 'faq.html',
+		'9' => 'summary.html'
 	),
 	'extendedScope' => array(
 	)

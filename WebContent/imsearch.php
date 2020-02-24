@@ -2,22 +2,21 @@
 <!DOCTYPE html><!-- HTML5 -->
 <html prefix="og: http://ogp.me/ns#" lang="it-IT" dir="ltr">
 	<head>
-		<title>Cerca - Prova - WEBSITE X5 DEMO VERSION </title>
+		<title>Cerca - SitoAsta  </title>
 		<meta charset="utf-8" />
 		<!--[if IE]><meta http-equiv="ImageToolbar" content="False" /><![endif]-->
-		<meta name="generator" content="Incomedia WebSite X5 Professional 14.0.6.1 - UNREGISTERED VERSION - www.websitex5.com" />
 		<meta property="og:locale" content="it" />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="http://eagsatea.it/imsearch.php" />
+		<meta property="og:url" content="http://yubbnjk.it/imsearch.php" />
 		<meta property="og:title" content="Cerca" />
-		<meta property="og:site_name" content="Prova" />
+		<meta property="og:site_name" content="SitoAsta" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
 		<link rel="stylesheet" type="text/css" href="style/reset.css?14-0-6-1" media="screen,print" />
 		<link rel="stylesheet" type="text/css" href="style/print.css?14-0-6-1" media="print" />
 		<link rel="stylesheet" type="text/css" href="style/style.css?14-0-6-1" media="screen,print" />
 		<link rel="stylesheet" type="text/css" href="style/template.css?14-0-6-1" media="screen" />
-		<link rel="stylesheet" type="text/css" href="pcss/imsearch.css?14-0-6-1-637178217679110555" media="screen,print" />
+		<link rel="stylesheet" type="text/css" href="pcss/imsearch.css?14-0-6-1-637181015076358575" media="screen,print" />
 		<script type="text/javascript" src="res/jquery.js?14-0-6-1"></script>
 		<script type="text/javascript" src="res/x5engine.js?14-0-6-1" data-files-version="14-0-6-1"></script>
 		<script type="text/javascript">
@@ -34,7 +33,7 @@
 				<div id="imFooterBg"></div>
 				<div id="imPage">
 					<div id="imHeader">
-						<h1 class="imHidden">Cerca - Prova - WEBSITE X5 DEMO VERSION </h1>
+						<h1 class="imHidden">Cerca - SitoAsta - WEBSITE X5 DEMO VERSION </h1>
 						<div id="imHeaderObjects"><div id="imHeader_imMenuObject_01_wrapper" class="template-object-wrapper"><div id="imHeader_imCell_1" class="" > <div id="imHeader_imCellStyleGraphics_1"></div><div id="imHeader_imCellStyle_1" ><div id="imHeader_imMenuObject_01"><div class="hamburger-button hamburger-component"><div><div><div class="hamburger-bar"></div><div class="hamburger-bar"></div><div class="hamburger-bar"></div></div></div></div><div class="hamburger-menu-background-container hamburger-component">
 	<div class="hamburger-menu-background menu-mobile menu-mobile-animated hidden">
 		<div class="hamburger-menu-close-button"><span>&times;</span></div>
@@ -45,49 +44,14 @@
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
 		<a class="label" href="index.html">
-Home Page		</a>
+HomePage		</a>
 </div>
 </div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/riepilogoasta.html">
+	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="riepilogoasta.html">
-riepilogoAsta		</a>
-</div>
-</div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/astaadmin.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="astaadmin.html">
-AstaAdmin		</a>
-</div>
-</div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/homeasta.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="homeasta.html">
-HomeAsta		</a>
-</div>
-</div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/pagina-1.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="pagina-1.html">
-Pagina 1		</a>
-</div>
-</div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/pagina-2.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="pagina-2.html">
-Pagina 2		</a>
-</div>
-</div>
-	</li><li class="imMnMnLast imPage" data-link-paths="/pagina-3.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="pagina-3.html">
-Pagina 3		</a>
+		<a class="label" href="faq.html">
+FAQ		</a>
 </div>
 </div>
 	</li></ul></div><script type="text/javascript">
@@ -95,7 +59,7 @@ x5engine.boot.push(function(){x5engine.initMenu('imHeader_imMenuObject_01',1000)
 $(function () {$('#imHeader_imMenuObject_01 ul li').each(function () {    var $this = $(this), timeout = 0, subtimeout = 0, width = 'none', height = 'none';        var submenu = $this.children('ul').add($this.find('.multiple-column > ul'));    $this.on('mouseenter', function () {        if($(this).parents('#imHeader_imMenuObject_01-menu-opened').length > 0) return;         clearTimeout(timeout);        clearTimeout(subtimeout);        $this.children('.multiple-column').show(0);        submenu.stop(false, false);        if (width == 'none') {             width = submenu.width();        }        if (height == 'none') {            height = submenu.height();            submenu.css({ overflow : 'hidden', height: 0});        }        setTimeout(function () {         submenu.css({ overflow : 'hidden'}).fadeIn(1).animate({ height: height }, 300, null, function() {$(this).css('overflow', 'visible'); });        }, 250);    }).on('mouseleave', function () {        if($(this).parents('#imHeader_imMenuObject_01-menu-opened').length > 0) return;         timeout = setTimeout(function () {         submenu.stop(false, false);            submenu.css('overflow', 'hidden').animate({ height: 0 }, 300, null, function() {$(this).fadeOut(0); });            subtimeout = setTimeout(function () { $this.children('.multiple-column').hide(0); }, 300);        }, 250);    });});});
 
 </script>
-</div></div></div><div id="imHeader_imObjectTitle_03_wrapper" class="template-object-wrapper"><div id="imHeader_imCell_3" class="" > <div id="imHeader_imCellStyleGraphics_3"></div><div id="imHeader_imCellStyle_3" ><div id="imHeader_imObjectTitle_03"><span id ="imHeader_imObjectTitle_03_text" >Asta del Fantacalcio</span > </div></div></div></div></div>
+</div></div></div><div id="imHeader_imObjectTitle_03_wrapper" class="template-object-wrapper"><div id="imHeader_imCell_3" class="" > <div id="imHeader_imCellStyleGraphics_3"></div><div id="imHeader_imCellStyle_3" ><div id="imHeader_imObjectTitle_03"><span id ="imHeader_imObjectTitle_03_text" >Fanta Asta</span > </div></div></div></div></div>
 					</div>
 					<div id="imStickyBarContainer">
 						<div id="imStickyBarGraphics"></div>
@@ -110,49 +74,14 @@ $(function () {$('#imHeader_imMenuObject_01 ul li').each(function () {    var $t
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
 		<a class="label" href="index.html">
-Home Page		</a>
+HomePage		</a>
 </div>
 </div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/riepilogoasta.html">
+	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="riepilogoasta.html">
-riepilogoAsta		</a>
-</div>
-</div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/astaadmin.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="astaadmin.html">
-AstaAdmin		</a>
-</div>
-</div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/homeasta.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="homeasta.html">
-HomeAsta		</a>
-</div>
-</div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/pagina-1.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="pagina-1.html">
-Pagina 1		</a>
-</div>
-</div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths="/pagina-2.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="pagina-2.html">
-Pagina 2		</a>
-</div>
-</div>
-	</li><li class="imMnMnLast imPage" data-link-paths="/pagina-3.html">
-<div class="label-wrapper">
-<div class="label-inner-wrapper">
-		<a class="label" href="pagina-3.html">
-Pagina 3		</a>
+		<a class="label" href="faq.html">
+FAQ		</a>
 </div>
 </div>
 	</li></ul></div><script type="text/javascript">
@@ -190,7 +119,15 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 						</div>
 					</div>
 					<div id="imFooter">
-						<div id="imFooterObjects"></div>
+						<div id="imFooterObjects"><div id="imFooter_imObjectTitle_04_wrapper" class="template-object-wrapper"><div id="imFooter_imCell_4" class="" > <div id="imFooter_imCellStyleGraphics_4"></div><div id="imFooter_imCellStyle_4" ><div id="imFooter_imObjectTitle_04"><span id ="imFooter_imObjectTitle_04_text" >Title</span > </div></div></div></div><div id="imFooter_imTextObject_02_wrapper" class="template-object-wrapper"><div id="imFooter_imCell_2" class="" > <div id="imFooter_imCellStyleGraphics_2"></div><div id="imFooter_imCellStyle_2" ><div id="imFooter_imTextObject_02">
+	<div class="text-tab-content"  id="imFooter_imTextObject_02_tab0" style="">
+		<div class="text-inner">
+			<div><div style="text-align: center;"><span class="fs12 cf1">Dedicato a Francesco Manganaro</span></div></div>
+		</div>
+	</div>
+
+</div>
+</div></div></div></div>
 					</div>
 				</div>
 				<span class="imHidden"><a href="#imGoToCont" title="Rileggi i contenuti della pagina">Torna ai contenuti</a></span>
