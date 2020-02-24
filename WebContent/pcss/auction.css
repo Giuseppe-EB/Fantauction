@@ -133,7 +133,7 @@ font-weight: bold;
 #imCell_3 { display: block; position: relative; }
 #imCellStyle_3 { position: relative; box-sizing: border-box; text-align: center; z-index: 2;}
 #imCellStyleGraphics_3 { position: absolute; top: 3px; bottom: 3px; background-color: transparent; }
-player{
+.player_{
 	color :  rgba(255, 255, 255, .4);
 }
 .player{

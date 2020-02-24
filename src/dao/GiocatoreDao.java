@@ -39,7 +39,7 @@ public class GiocatoreDao {
 			statement = connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
-				 giocatori.add(new Giocatore(result.getInt("id"),result.getString("nome"),result.getString("cognome"),result.getString("squadra"),result.getString("ruolo")));
+				 giocatori.add(new Giocatore(result.getInt("id"),result.getString("nome"),result.getString("cognome"),result.getString("squadra"),result.getString("ruolo"), result.getString("path")));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

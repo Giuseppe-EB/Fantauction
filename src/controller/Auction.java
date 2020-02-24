@@ -132,9 +132,9 @@ public class Auction extends HttpServlet {
 					AstaDao.getInstance().setCurrentPlayer(currentPlayer, squadra.getIdAsta());
 					@SuppressWarnings("unchecked")
 					ArrayList<Giocatore> giocatori= (ArrayList<Giocatore>) request.getSession().getAttribute("giocatori");
-					response.getWriter().print("<img id=\"imObjectImage_7_05\" src=\""+giocatori.get(currentPlayer).getId()+"\" title=\"\" alt=\"\" />\r\n" + 
-							"					    <player id=\"currentPlayerId\" >"+giocatori.get(currentPlayer).getId()+"</player>\r\n" + 
-							"					    <p class=\"player\">"+giocatori.get(currentPlayer).getNome()+"\r\n" + 
+					response.getWriter().print("<img id=\"imObjectImage_7_05\" src=\""+giocatori.get(currentPlayer).getPath()+"\" title=\"\" alt=\"\" />\r\n" + 
+							"					    <label class=\"player_\" id=\"currentPlayerId\" >"+giocatori.get(currentPlayer).getId()+"</label><br>\r\n" + 
+							"					    <label class=\"player\">"+giocatori.get(currentPlayer).getNome()+"</label>\r\n" + 
 							"					    <label class=\"player-S\">"+giocatori.get(currentPlayer).getCognome()+"</label>");
 					return;
 				

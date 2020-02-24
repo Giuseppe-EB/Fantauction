@@ -147,10 +147,11 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				<div id="imCell_3" class="" > <div id="imCellStyleGraphics_3"></div><div id="imCellStyle_3"  data-responsive-sequence-number="3"><div id="imHTMLObject_4_03" class="imHTMLObject" style="height: 500px; overflow: auto; text-align: center;"><div id="imCellStyle_5"  data-responsive-sequence-number="3">
 					<p id="currentPlayer">
 					    <img id="imObjectImage_7_05" src="images/DYBALA.png" title="" alt="" />
-					    <player id="currentPlayerId" >${giocatori.get(currentPlayer).getId()}</player>
-					    <p class="player">${giocatori.get(currentPlayer).getNome()}
+					    <label class="player_" id="currentPlayerId" >${giocatori.get(currentPlayer).getId()}</label>
+					    <label class="player">${giocatori.get(currentPlayer).getNome()}</label>
 					    <label class="player-S">${giocatori.get(currentPlayer).getCognome()}</label>
-					    </p>
+					</p>
+					
 					    </div>
 					    </div>
 					    </div>
