@@ -14,7 +14,7 @@
 		<meta property="og:site_name" content="SitoAsta" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link rel="stylesheet" type="text/css" href="style/reset.css?14-0-6-1" media="screen,print" />
+		<link rel="stylesheet" type="text/css" href="style/reset.css?14-0-6-1" media="screen,print" /> 
 		<link rel="stylesheet" type="text/css" href="style/print.css?14-0-6-1" media="print" />
 		<link rel="stylesheet" type="text/css" href="style/style.css?14-0-6-1" media="screen,print" />
 		<link rel="stylesheet" type="text/css" href="style/template.css?14-0-6-1" media="screen" />
