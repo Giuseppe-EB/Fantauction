@@ -2,9 +2,8 @@ package model;
 
 public class giocatore1 extends Giocatore {
     private int prezzo;
-	public giocatore1(int id, String nome, String cognome, String squadra, String ruolo,int prezzo) {
-		super(id, nome, cognome, squadra, ruolo);
-		// TODO Auto-generated constructor stub
+	public giocatore1(int id, String nome, String cognome, String squadra, String ruolo,int prezzo,String path) {
+		super(id, nome, cognome, squadra, ruolo, path);
 		this.setPrezzo(prezzo);
 	}
 	public giocatore1(String nome, String cognome, int prezzo)

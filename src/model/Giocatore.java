@@ -6,14 +6,16 @@ protected String nome;
 protected String cognome;
 private String squadra;
 private String ruolo;
+private String path;
 public Giocatore() {}
-public Giocatore(int id,String nome,String cognome,String squadra,String ruolo)
+public Giocatore(int id,String nome,String cognome,String squadra,String ruolo, String path)
 {
 	this.id=id;
 	this.nome=nome;
 	this.cognome=cognome;
 	this.squadra=squadra;
 	this.ruolo=ruolo;
+	this.path=path;
 }
 public String getNome() {
 	return nome;
@@ -44,6 +46,12 @@ public int getId() {
 }
 public void setId(int id) {
 	this.id = id;
+}
+public String getPath() {
+	return path;
+}
+public void setPath(String path) {
+	this.path = path;
 }
 
 }

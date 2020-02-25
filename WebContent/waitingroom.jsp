@@ -221,5 +221,5 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 		xhttp.open("post", "/fantauction.it/auction?key=check", true);
 		xhttp.send(); 
 		
-	}, 10000);</script>
+	}, 1000);</script>
 </html>

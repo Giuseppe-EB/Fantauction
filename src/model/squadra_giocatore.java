@@ -28,4 +28,15 @@ public class squadra_giocatore {
 		   i=0;
 	   return giocatori.get(i++);
    }
+   public String getPlayerName() {
+	   if(i==giocatori.size())
+		   i=0;
+	   return giocatori.get(i).getNome();
+   }
+   public String getPlayerSurname() {
+	   return giocatori.get(i).getCognome();
+   }
+   public int getPlayerPrice() {
+	   return giocatori.get(i++).getPrezzo();
+   }
 }

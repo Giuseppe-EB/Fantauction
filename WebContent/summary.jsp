@@ -123,8 +123,8 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				        <tbody>
 				            <tr>
 				            <c:forEach var="giocatori_squadra" items="${giocatori_squadra}">
-				             <td colspan="2" rowspan="1" style="text-align: center; width: 151px; height: 21px; margin-top: 0px; margin-left: 0px;  background-color: rgb(255, 255, 255);" class="imVt">Cristiano ${giocatori_squadra.getGiocatore().getCognome()}</td>
-				             <td colspan="1" rowspan="1" style="text-align: center; width: 125px; height: 21px; margin-top: 0px; margin-left: 0px; background-color: rgb(255, 255, 255);" class="imVt">10</td>
+				             <td colspan="2" rowspan="1" style="text-align: center; width: 151px; height: 21px; margin-top: 0px; margin-left: 0px;  background-color: rgb(255, 255, 255);" class="imVt">${giocatori_squadra.getPlayerName()} ${giocatori_squadra.getPlayerSurname()}</td>
+				             <td colspan="1" rowspan="1" style="text-align: center; width: 125px; height: 21px; margin-top: 0px; margin-left: 0px; background-color: rgb(255, 255, 255);" class="imVt">${giocatori_squadra.getPlayerPrice()}</td>
 							</c:forEach>
 							</tr>				         
 				          
