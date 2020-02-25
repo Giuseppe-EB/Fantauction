@@ -43,14 +43,14 @@
 	<li class="imMnMnFirst imPage" data-link-paths="/index.html,/">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="index.html">
+		<a class="label" href="/fantauction.it/auction">
 HomePage		</a>
 </div>
 </div>
 	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="faq.html">
+		<a class="label" href="/fantauction.it/auction?key=faq">
 FAQ		</a>
 </div>
 </div>
@@ -73,14 +73,14 @@ $(function () {$('#imHeader_imMenuObject_01 ul li').each(function () {    var $t
 	<li class="imMnMnFirst imPage" data-link-paths="/index.html,/">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="index.html">
+		<a class="label" href="/fantauction.it/auction">
 HomePage		</a>
 </div>
 </div>
 	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="faq.html">
+		<a class="label" href="/fantauction.it/auction?key=faq">
 FAQ		</a>
 </div>
 </div>
@@ -154,7 +154,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				       	</form>
 				</c:if>
 				<c:if test="${form == 3}">
-				        LISTA SQUADRE:
+				        <p>LISTA SQUADRE:</p>
 				        	<c:forEach var="squadre" items="${squadre}">
 				        		<br>
 				        		<label class="form-text" id="${squadre.getId()}" onclick="selezione(this.id)" >${squadre.getNome()}</label>

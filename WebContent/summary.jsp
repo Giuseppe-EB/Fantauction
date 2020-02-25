@@ -47,14 +47,14 @@
 	<li class="imMnMnFirst imPage" data-link-paths="/index.html,/">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="index.html">
+		<a class="label" href="/fantauction.it/auction">
 HomePage		</a>
 </div>
 </div>
 	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="faq.html">
+		<a class="label" href="/fantauction.it/auction?key=faq">
 FAQ		</a>
 </div>
 </div>
@@ -77,14 +77,14 @@ $(function () {$('#imHeader_imMenuObject_01 ul li').each(function () {    var $t
 	<li class="imMnMnFirst imPage" data-link-paths="/index.html,/">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="index.html">
+		<a class="label" href="/fantauction.it/auction">
 HomePage		</a>
 </div>
 </div>
 	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="faq.html">
+		<a class="label" href="/fantauction.it/auction?key=faq">
 FAQ		</a>
 </div>
 </div>
@@ -105,9 +105,9 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 					</div>
 					<div id="imContentContainer">
 						<div id="imContentGraphics"></div>
-						<div id="imContent">
+						<div id="imContent" style="">
 							<a id="imGoToCont"></a>
-				<div id="imPageRow_1" class="imPageRow">
+				<div id="imPageRow_1" style="left:68px; margin-right:138px;" class="imPageRow">
 				
 				<div id="imPageRowContent_1" class="imContentDataContainer">
 				<div id="imCell_1" class="" > <div id="imCellStyleGraphics_1"></div><div id="imCellStyle_1"  data-responsive-sequence-number="1"><div id="imHTMLObject_9_01" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;">
@@ -269,9 +269,15 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				        }
 				    });
 				})(jQuery);</script>
-				</div></div></div></div>
+				
 				</div>
-				<a href="#" onClick ="$('#table5').tableExport({type:'excel',escape:'false'});" class="excel">Download Excel</a>
+				<a href="#" onClick ="$('#table5').tableExport({type:'excel',escape:'false'});" class="excel" style="margin-right:95px;">Download Excel</a>
+				
+				</div>
+				</div>
+				</div>
+				</div>
+				
 							<div class="imClear"></div>
 						</div>
 					</div>

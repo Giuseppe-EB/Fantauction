@@ -78,7 +78,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 #imGroup_1 { float: left; }
 #imGroup_1 > div { float: left; }
 #imGroup_2 > div { float: left; }
-#imCell_2 { display: block; position: relative; }
+#imCell_2 { display: block; position: relative; padding-left: 56px}
 #imCellStyle_2 { position: relative; box-sizing: border-box; text-align: center; z-index: 2;}
 #imCellStyleGraphics_2 { position: absolute; top: 3px; bottom: 3px; background-color: transparent; }
 .table7 {
@@ -148,7 +148,7 @@ font-style: normal;
 font-variant: small-caps;
 text-transform: none;
 }
-#imCell_3 { display: block; position: relative; }
+#imCell_3 { display: block; position: relative; padding-left: 56px }
 #imCellStyle_3 { position: relative; box-sizing: border-box; text-align: center; z-index: 2;}
 #imCellStyleGraphics_3 { position: absolute; top: 3px; bottom: 3px; background-color: transparent; }
 .table_dark {
@@ -206,10 +206,10 @@ cerchioR{
 	.imContentDataContainer { width: 1140px; margin-left: auto; margin-right: auto; padding: 0 5px 0 5px; }
 	#imGroup_1 { width: 1140px; }
 	#imGroup_2 { width: 570px; }
-	#imCell_2 { width: 564px; min-height: 356px;  padding-top: 3px; padding-bottom: 3px; padding-left: 3px; padding-right: 3px; }
+	#imCell_2 { width: 564px; min-height: 356px;  padding-top: 3px; padding-bottom: 3px; padding-left: 53px; padding-right: 3px; }
 	#imCellStyle_2 { width: 564px; min-height: 356px; padding: 3px 3px 3px 3px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
 	#imCellStyleGraphics_2 { left: 3px; right: 3px; }
-	#imCell_3 { width: 564px; min-height: 356px;  padding-top: 3px; padding-bottom: 3px; padding-left: 3px; padding-right: 3px; }
+	#imCell_3 { width: 564px; min-height: 356px;  padding-top: 3px; padding-bottom: 3px; padding-left: 55px; padding-right: 3px; }
 	#imCellStyle_3 { width: 564px; min-height: 356px; padding: 3px 3px 3px 3px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
 	#imCellStyleGraphics_3 { left: 3px; right: 3px; }
 	#imCell_1 { width: 564px; min-height: 718px;  padding-top: 3px; padding-bottom: 3px; padding-left: 3px; padding-right: 3px; }

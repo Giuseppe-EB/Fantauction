@@ -45,14 +45,14 @@
 	<li class="imMnMnFirst imPage" data-link-paths="/index.html,/">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="index.html">
+		<a class="label" href="/fantauction.it/auction">
 HomePage		</a>
 </div>
 </div>
 	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="faq.html">
+		<a class="label" href="/fantauction.it/auction?key=faq">
 FAQ		</a>
 </div>
 </div>
@@ -75,14 +75,14 @@ $(function () {$('#imHeader_imMenuObject_01 ul li').each(function () {    var $t
 	<li class="imMnMnFirst imPage" data-link-paths="/index.html,/">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="index.html">
+		<a class="label" href="/fantauction.it/auction">
 HomePage		</a>
 </div>
 </div>
 	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="faq.html">
+		<a class="label" href="/fantauction.it/auction?key=faq">
 FAQ		</a>
 </div>
 </div>
@@ -112,18 +112,20 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				<div id="imGroup_2" class="imVGroup">
 				<div id="imCell_2" class="" > <div id="imCellStyleGraphics_2"></div><div id="imCellStyle_2"  data-responsive-sequence-number="1"><div id="imHTMLObject_7_02" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;"><p class="demo">La tua squadra è :</p><p class="demo1"> ${squadra.getNome()}</p>
 				
-				    <table class="table7" style="width:100%">    
-				     <tr>
-				      <th></th>
-				       <th>Nome</th>
-				       <th>Squadra</th>
-				      </tr>
-				    <c:forEach var="giocatori" items="${giocatori}">
-				  <tr><td></td><td>${giocatori.getNome()} ${giocatori.getCognome()}</td>
-				       <td>${giocatori.getSquadra()}</td>
-				      </tr>
-				    </c:forEach> 
-				    </table>
+				   <table class="table7" style="width:100%">				
+							    <tr>
+								  <th> </th>
+								  <th>Nome</th>
+								  <th>Squadra</th>
+								</tr>
+							<c:forEach var="giocatori" items="${giocatori}">
+								<tr>
+								 	<td>${giocatori.getRuolo()}</td>
+				 					<td>${giocatori.getNome()} ${giocatori.getCognome()}</td>
+				 					<td>${giocatori.getSquadra()}</td>
+								</tr>
+							</c:forEach>
+						</table>
 				</div></div></div><div id="imCell_3" class="" > <div id="imCellStyleGraphics_3"></div><div id="imCellStyle_3"  data-responsive-sequence-number="2"><div id="imHTMLObject_7_03" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;"><div class"tabella">
 				<table class="table_dark">
 				 <c:forEach var="squadre" items="${squadre}"> 

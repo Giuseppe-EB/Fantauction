@@ -123,10 +123,7 @@ border-top-left-radius: 5px;
 .round-bottom {
 border-bottom-left-radius: 5px;
 }
-tr:hover td{
-background: #D1C7BF;
-font-weight: bold;
-}#imGroup_3 > div { float: right; }
+#imGroup_3 > div { float: right; }
 #imCell_2 { display: block; position: relative; }
 #imCellStyle_2 { position: relative; box-sizing: border-box; text-align: center; z-index: 2;}
 #imCellStyleGraphics_2 { position: absolute; top: 3px; bottom: 3px; background-color: transparent; }

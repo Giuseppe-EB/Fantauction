@@ -45,14 +45,14 @@
 	<li class="imMnMnFirst imPage" data-link-paths="/index.html,/">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="index.html">
+		<a class="label" href="/fantauction.it/auction">
 HomePage		</a>
 </div>
 </div>
 	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="faq.html">
+		<a class="label" href="/fantauction.it/auction?key=faq">
 FAQ		</a>
 </div>
 </div>
@@ -75,14 +75,14 @@ $(function () {$('#imHeader_imMenuObject_01 ul li').each(function () {    var $t
 	<li class="imMnMnFirst imPage" data-link-paths="/index.html,/">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="index.html">
+		<a class="label" href="/fantauction.it/auction">
 HomePage		</a>
 </div>
 </div>
 	</li><li class="imMnMnLast imPage" data-link-paths="/faq.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="faq.html">
+		<a class="label" href="/fantauction.it/auction?key=faq">
 FAQ		</a>
 </div>
 </div>
@@ -109,8 +109,9 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				<div id="imPageRow_1" class="imPageRow">
 				
 				<div id="imPageRowContent_1" class="imContentDataContainer">
-				<div id="imGroup_2" class="imHGroup">
-				<div id="imCell_1" class="" > <div id="imCellStyleGraphics_1"></div><div id="imCellStyle_1"  data-responsive-sequence-number="1"><div id="imHTMLObject_4_01" class="imHTMLObject" style="height: 475px; overflow: auto; text-align: center;">			<table class="table7" style="width:100%">				
+				<div id="imGroup_2" class="imHGroup" style="margin-left: 46px;">
+				<div id="imCell_1" class="" > <div id="imCellStyleGraphics_1"></div><div id="imCellStyle_1"  data-responsive-sequence-number="1"><div id="imHTMLObject_4_01" class="imHTMLObject" style="height: 475px; overflow: auto; text-align: center;">			
+				<table class="table7" style="width:100%">				
 							    <tr>
 								  <th> </th>
 								  <th>Nome</th>
@@ -128,7 +129,7 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				</div>
 				</div>
 					<div id="imGroup_3" class="imHGroup">
-				<div id="imCell_2" class="" > <div id="imCellStyleGraphics_2"></div><div id="imCellStyle_2"  data-responsive-sequence-number="2"><div id="imHTMLObject_4_02" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;"><table class="table7" style="width:100%">
+				<div id="imCell_2" class="" style="right:93px;"> <div id="imCellStyleGraphics_2"></div><div id="imCellStyle_2"  data-responsive-sequence-number="2"><div id="imHTMLObject_4_02" class="imHTMLObject" style="height: 350px; overflow: auto; text-align: center;"><table class="table7" style="width:100%">
 				    <tr>
 					    <th>Squadra</th>
 					    <th>Crediti</th>
@@ -144,11 +145,11 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				</div>
 				</div>
 				</div>
-				<div id="imCell_3" class="" > <div id="imCellStyleGraphics_3"></div><div id="imCellStyle_3"  data-responsive-sequence-number="3"><div id="imHTMLObject_4_03" class="imHTMLObject" style="height: 500px; overflow: auto; text-align: center;"><div id="imCellStyle_5"  data-responsive-sequence-number="3">
+				<div id="imCell_3" style="right:38px;" class="" > <div id="imCellStyleGraphics_3"></div><div id="imCellStyle_3"  data-responsive-sequence-number="3"><div id="imHTMLObject_4_03" class="imHTMLObject" style="height: 500px; overflow: auto; text-align: center;"><div id="imCellStyle_5"  data-responsive-sequence-number="3">
 					<p id="currentPlayer">
 					    <img id="imObjectImage_7_05" src="images/DYBALA.png" title="" alt="" />
 					    <player id="currentPlayerId" >${giocatori.get(currentPlayer).getId()}</player>
-					    <p class="player">${giocatori.get(currentPlayer).getNome()}
+					    <p class="player" style="margin-top:17px;">${giocatori.get(currentPlayer).getNome()}
 					    <label class="player-S">${giocatori.get(currentPlayer).getCognome()}</label>
 					    </p>
 					    </div>

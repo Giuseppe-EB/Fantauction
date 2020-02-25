@@ -45,7 +45,9 @@ public class Auction extends HttpServlet {
 					return;
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("seleziona")) {
-					System.out.println("switch");
+					
+					ArrayList<Giocatore> giocatori = (ArrayList<Giocatore>) GiocatoreDao.getInstance().findAll();
+					request.getSession().setAttribute("giocatori", giocatori);
 					RequestDispatcher rd = request.getRequestDispatcher("/waitingroom.jsp");
 					rd.forward(request, response);
 					return;
@@ -62,6 +64,13 @@ public class Auction extends HttpServlet {
 					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
 					request.getSession().setAttribute("giocatori_squadra", SquadraDao.getInstance().tabella(squadra.getIdAsta()));
 					RequestDispatcher rd = request.getRequestDispatcher("/summary.jsp");
+					rd.forward(request, response);
+					return;
+				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("faq"))
+				{	
+				
+					RequestDispatcher rd = request.getRequestDispatcher("/faq.html");
 					rd.forward(request, response);
 					return;
 				}
@@ -171,7 +180,7 @@ public class Auction extends HttpServlet {
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("syncro")) {
 					LinkedList<Squadra> squadre = extracted(request);
 					int currentPlayer = (int) request.getSession().getAttribute("currentPlayer");
-					System.out.println(currentPlayer);
+					
 					if(AstaDao.getInstance().getCurrentPlayer(squadre.get(0).getIdAsta())!=currentPlayer) {
 							if(equals(squadre, (LinkedList<Squadra>) SquadraDao.getInstance().findAll(squadre.get(0).getIdAsta())))
 							{	response.getWriter().print("skip");
