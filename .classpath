@@ -13,17 +13,17 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/simos/Desktop/apache-tomcat-9.0.27/lib/servlet-api.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/joema/Documents/Web Computing/apache-tomcat-9.0.26/lib/servlet-api.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/simos/Downloads/jstl-1.2.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/joema/Downloads/jstl-1.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/simos/Downloads/postgresql-42.2.9.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/joema/Downloads/postgresql-42.2.9.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>

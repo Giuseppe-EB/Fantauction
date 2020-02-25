@@ -114,18 +114,18 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				        <form action="<%="/fantauction.it/auction?key=form1"%>" class="form" method="post" >
 							<div class="form"> 
 							     <div>
-							       <label class="form-label" for="textinput">Nome Asta</label> 
-								   <input class="form-text" id="name" name="name" placeholder="Fanta Asta"  > 
+							       <label class="form-label" for="textinput" style="right:8px;">Nome Asta</label> 
+								   <input class="form-text" id="name" name="name" placeholder="Fanta Asta"  type="text" required> 
 								  </div>
 							</div>
 							<div class="col-md-4"> 
 								     <label class="form-label" for="textinput">Password</label> 
-								    <input class="form-text" id="password" name="password" placeholder="Password" >
+								    <input class="form-text" id="password" name="password" placeholder="Password" type="text" style="margin-left:9px;" required>
 							 </div>
 							<div>
 								<div>
-									<label class="form-label" for="textinput">Numero Squadre</label> 
-										<input class="form-text" id="nTeam" name="nTeam" placeholder="8" > 
+									<label class="form-label" for="textinput" style="right:121px;">Numero Squadre</label> 
+										<input class="form-text" id="nTeam" name="nTeam" placeholder="8" type="number" style="width: 38px; right:25px;" required> 
 										<span><br>
 										</span>
 								</div>

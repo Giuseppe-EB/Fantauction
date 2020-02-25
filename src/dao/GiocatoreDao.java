@@ -35,7 +35,7 @@ public class GiocatoreDao {
 		try {
 			connection = this.dataSource.getConnection();
 			PreparedStatement statement;
-			String query = "select * from giocatore";
+			String query = "select * from giocatore order by  ruolo desc, cognome asc ";
 			statement = connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {

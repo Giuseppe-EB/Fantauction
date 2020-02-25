@@ -142,7 +142,7 @@ public class SquadraDao {
 		LinkedList<squadra_giocatore> giocatori_squadra= new LinkedList<>();
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String query = "select s.nome as NomeSquadra, g.nome as NomeGiocatore,  g1.prezzo, g.cognome as Cognome from squadra s, giocatore g, giocatore_squadra g1 where g.id=g1.idgiocatore and s.id=g1.idsquadra and g1.idasta=? and s.idasta=g1.idasta group by s.nome,g.nome,g.cognome,g1.prezzo";
+			String query = "select s.nome as NomeSquadra, g.nome as NomeGiocatore,  g1.prezzo, g.cognome as Cognome from squadra s, giocatore g, giocatore_squadra g1 where g.id=g1.idgiocatore and s.id=g1.idsquadra and g1.idasta=? and s.idasta=g1.idasta group by s.nome,g.nome,g.cognome,g1.prezzo, g.ruolo order by s.nome, g.ruolo desc, g.cognome asc";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setInt(1, idasta);
 			ResultSet result = statement.executeQuery();
