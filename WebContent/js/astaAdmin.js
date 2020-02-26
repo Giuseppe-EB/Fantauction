@@ -52,6 +52,7 @@ function syncro(){
 	    	var element = xhttp.responseText.split(",");
 	    	console.log("resposnseTEXT=", xhttp.responseText);
 	    	document.getElementById(element[0]).innerHTML= element[1];
+	    	document.getElementById("auction_listener").innerHTML = element[2];
 			}
 		};
 	xhttp.open("post", "/fantauction.it/auction?key=refreshS", true);

@@ -20,12 +20,7 @@
 		<link rel="stylesheet" type="text/css" href="style/template.css?14-0-6-1" media="screen" />
 		<link rel="stylesheet" type="text/css" href="pcss/auction.css?14-0-6-1-637181015076529852" media="screen,print" />
 		<script type="text/javascript" src="res/jquery.js?14-0-6-1"></script>
-		<script type="text/javascript" src="res/x5engine.js?14-0-6-1" data-files-version="14-0-6-1"></script>
-		<script type="text/javascript">
-			window.onload = function(){ checkBrowserCompatibility('Il Browser che stai utilizzando non supporta le funzionalità richieste per visualizzare questo Sito.','Il Browser che stai utilizzando potrebbe non supportare le funzionalità richieste per visualizzare questo Sito.','[1]Aggiorna il tuo browser[/1] oppure [2]procedi ugualmente[/2].','http://outdatedbrowser.com/'); };
-			x5engine.utils.currentPagePath = 'auction.html';
-			x5engine.boot.push(function () { x5engine.imPageToTop.initializeButton({}); });
-		</script>
+		
 		
 	</head>
 	<body>
@@ -170,7 +165,8 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				<div id="imGroup_4" class="imHGroup">
 				<div id="imGroup_5" class="imHGroup">
 				<div id="imCell_4" class="" > <div id="imCellStyleGraphics_4"></div><div id="imCellStyle_4"  data-responsive-sequence-number="4"><div id="imHTMLObject_4_04" class="imHTMLObject" style="height: 425px; overflow: hidden; text-align: center;">
-				<input id="crediti" name="crediti" class="cash-input" placeholder="  &euro;">
+				<c:if test="${admin == true }">
+				<input id="crediti" name="crediti" class="cash-input" placeholder="  &euro;" type="number">
 				<select class="cash-select" name="select">
 					<c:forEach var="squadre" items="${squadre}">
 				    	<option selected="selected" value="${squadre.getId()}">${squadre.getNome()}</option>
@@ -178,12 +174,14 @@ $(function () {$('#imStickyBar_imMenuObject_03 ul li').each(function () {    var
 				</select>
 				<br>
 				<br>
-				<c:if test="${admin == true }">
 					<button onclick="skip()" class="skip">Skip </button>
 					<button onclick="acquista()" class="buy">Acquista</button>
 				<br> 
 				<br>
 				<button onclick="fine()" class="end">Fine Asta</button>
+				</c:if>
+				<c:if test="${admin == false }">
+					<p id="auction_listener">L'asta sta per iniziare...</p>
 				</c:if>
 				</div></div></div><div id="imGroup_6" class="imEGroup"></div>
 				
@@ -225,8 +223,8 @@ if("${admin}"=="false"){
 		    	if(xhttp.responseText=="skip")
 		    		skip();
 		    	else if(xhttp.responseText=="refresh")
-		    	{	syncro();
-		    		skip();
+		    	{	skip();
+		    		syncro();
 		    	}
 		    		
 		    	/*var connected = xhttp.responseText.split(",");

@@ -20,14 +20,13 @@
 				                //console.log($(this).html());
 				                var excel="<table>";
 				                // Header
-				                console.log("1111");
+				                
 				                $(el).find('thead').find('tr').each(function() {
 				                    excel += "<tr>";
 				                    $(this).filter(':visible').find('th').each(function(index,data) {
 				                        if ($(this).css('display') != 'none'){
 				                            if(defaults.ignoreColumn.indexOf(index) == -1){
-				                            	console.log("porcodio",parseString($(this)));
-				                                excel += "<td>" + parseString($(this))+ "</td>";
+				                            	excel += "<td>" + parseString($(this))+ "</td>";
 				                                excel += "<td>" + "$" + "<td>";
 				                            }
 				                        }
@@ -36,7 +35,7 @@
 
 				                });
 
-				                console.log("1111");
+				               
 				                // Row Vs Column
 				                var rowCount=1;
 				                $(el).find('tbody').find('tr').each(function() {
@@ -45,7 +44,6 @@
 				                    $(this).filter(':visible').find('td').each(function(index,data) {
 				                        if ($(this).css('display') != 'none'){
 				                            if(defaults.ignoreColumn.indexOf(index) == -1){
-				                            	console.log("porcodio",parseString($(this)));
 				                            	excel += "<td>"+parseString($(this))+"</td>";
 				                            }
 				                        }

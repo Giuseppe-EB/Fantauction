@@ -22,12 +22,7 @@
 		<link rel="stylesheet" type="text/css" href="style/template.css?14-0-6-1" media="screen" />
 		<link rel="stylesheet" type="text/css" href="pcss/summary.css?14-0-6-1-637181015076468778" media="screen,print" />
 		<script type="text/javascript" src="res/jquery.js?14-0-6-1"></script>
-		<script type="text/javascript" src="res/x5engine.js?14-0-6-1" data-files-version="14-0-6-1"></script>
-		<script type="text/javascript">
-			window.onload = function(){ checkBrowserCompatibility('Il Browser che stai utilizzando non supporta le funzionalità richieste per visualizzare questo Sito.','Il Browser che stai utilizzando potrebbe non supportare le funzionalità richieste per visualizzare questo Sito.','[1]Aggiorna il tuo browser[/1] oppure [2]procedi ugualmente[/2].','http://outdatedbrowser.com/'); };
-			x5engine.utils.currentPagePath = 'summary.html';
-			x5engine.boot.push(function () { x5engine.imPageToTop.initializeButton({}); });
-		</script>
+		
 		
 	</head>
 	<body>

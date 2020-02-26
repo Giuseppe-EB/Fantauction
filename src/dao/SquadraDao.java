@@ -16,7 +16,7 @@ public class SquadraDao {
 	private SquadraDao() {
 		try {
 			Class.forName("org.postgresql.Driver").newInstance();
-			dataSource=new DataSource("jdbc:postgresql://localhost:5432/SitoAsta","postgres","Accettare7");
+			dataSource=new DataSource("jdbc:postgresql://rogue.db.elephantsql.com:5432/rjzafrnh","rjzafrnh","a4FVbMrfxMeTqhbxaXHtuvyOn_WKgWyw");
 		} catch (Exception e) {
 			System.out.println("MySQLDAOFactory.class: failed to load MySQL JDBC driver\n" + e);
 			e.printStackTrace();
@@ -30,6 +30,7 @@ public class SquadraDao {
 		return instance;
 	}
 	public List<Squadra> findAll(int id) {
+		if(id==-1) return null;
 		Connection connection = null;
 		List<Squadra> squadre = new LinkedList<>();
 		try {
@@ -147,8 +148,7 @@ public class SquadraDao {
 			statement.setInt(1, idasta);
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
-				System.out.println("en");
-				if(giocatori_squadra.isEmpty())
+					if(giocatori_squadra.isEmpty())
 					giocatori_squadra.add(new squadra_giocatore(result.getString("NomeSquadra")));
 				if(giocatori_squadra.getLast().getNome().equalsIgnoreCase(result.getString("NomeSquadra")))
 					giocatori_squadra.getLast().add(new giocatore1(result.getString("NomeGiocatore"),result.getString("Cognome"),result.getInt("prezzo")));

@@ -17,6 +17,7 @@ import dao.SquadraDao;
 import model.Asta;
 import model.Giocatore;
 import model.Squadra;
+import model.giocatore1;
 
 
 @WebServlet("/auction")
@@ -105,8 +106,8 @@ public class Auction extends HttpServlet {
 					
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("partecipa")) {
-					String nome=request.getParameter("nome");
-					if(request.getParameter("nome").equalsIgnoreCase("Asta1*")) {
+					String nome=request.getParameter("name");
+					if(request.getParameter("name").equalsIgnoreCase("Asta1*")) {
 						request.getSession().setAttribute("admin", true);
 						nome = "Asta1";
 					}
@@ -118,6 +119,7 @@ public class Auction extends HttpServlet {
 											request.getParameter("password"), 0)));
 					request.getSession().setAttribute("squadre", squadre);
 					request.getSession().setAttribute("form", "3");
+					if(squadre==null) throw new RuntimeException("credenziali_errate");
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("seleziona")) {
 					int id=Integer.parseInt(request.getParameter("id"));
@@ -136,9 +138,13 @@ public class Auction extends HttpServlet {
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("skip")) {
 					int currentPlayer =  (int) request.getSession().getAttribute("currentPlayer");
 					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
-					currentPlayer++;
+					if(!(boolean)request.getSession().getAttribute("admin"))
+						currentPlayer=AstaDao.getInstance().getCurrentPlayer(squadra.getIdAsta());
+					else
+					{	currentPlayer++;
+						AstaDao.getInstance().setCurrentPlayer(currentPlayer, squadra.getIdAsta());
+					}
 					request.getSession().setAttribute("currentPlayer", currentPlayer);
-					AstaDao.getInstance().setCurrentPlayer(currentPlayer, squadra.getIdAsta());
 					@SuppressWarnings("unchecked")
 					ArrayList<Giocatore> giocatori= (ArrayList<Giocatore>) request.getSession().getAttribute("giocatori");
 					response.getWriter().print("<img id=\"imObjectImage_7_05\" src=\""+giocatori.get(currentPlayer).getPath()+"\" title=\"\" alt=\"\" />\r\n" + 
@@ -174,7 +180,14 @@ public class Auction extends HttpServlet {
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("refreshS")) {
 					LinkedList<Squadra> squadre = extracted(request);
 					Squadra squadra = modify(squadre, (LinkedList<Squadra>) SquadraDao.getInstance().findAll(squadre.get(0).getIdAsta()));
-					response.getWriter().print(squadra.getId()+","+squadra.getCrediti());
+					giocatore1 giocatore = GiocatoreDao.getInstance().getLastBuying(squadra);
+					response.getWriter()
+						.print(squadra.getId()+ "," 
+								+squadra.getCrediti()+ "," 
+									+"La Squadra "+ squadra.getNome() 
+										+" ha acquistato" +giocatore.getNome() 
+											+ "&#32;" + giocatore.getCognome() 
+												+ "per " + giocatore.getPrezzo() + ".");
 					return;
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("syncro")) {
@@ -186,7 +199,7 @@ public class Auction extends HttpServlet {
 							{	response.getWriter().print("skip");
 								return;
 							}
-							System.out.println("aggiorno");
+							
 							response.getWriter().print("refresh");
 							return;
 					}

@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Giocatore;
+import model.Squadra;
+import model.giocatore1;
 
 public class GiocatoreDao {
 	private DataSource dataSource;
@@ -16,7 +18,7 @@ public class GiocatoreDao {
 	private GiocatoreDao() {
 		try {
 			Class.forName("org.postgresql.Driver").newInstance();
-			dataSource=new DataSource("jdbc:postgresql://localhost:5432/SitoAsta","postgres","Accettare7");
+			dataSource=new DataSource("jdbc:postgresql://rogue.db.elephantsql.com:5432/rjzafrnh","rjzafrnh","a4FVbMrfxMeTqhbxaXHtuvyOn_WKgWyw");
 		} catch (Exception e) {
 			System.out.println("MySQLDAOFactory.class: failed to load MySQL JDBC driver\n" + e);
 			e.printStackTrace();
@@ -74,5 +76,33 @@ public class GiocatoreDao {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
+	}
+	public giocatore1 getLastBuying(Squadra squadra) {
+		Connection connection = null;
+		try {
+			connection = this.dataSource.getConnection();
+			PreparedStatement statement;
+			String query = "select nome, cognome, prezzo \r\n" + 
+					"from giocatore_squadra, giocatore \r\n" + 
+					"where idsquadra=? and idasta=? and id=idgiocatore \r\n" + 
+					"order by ruolo asc, cognome desc\r\n" + 
+					"limit 1";
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, squadra.getId());
+			statement.setInt(2, squadra.getIdAsta());
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				return new giocatore1(result.getString("nome"), result.getString("cognome"), result.getInt("prezzo"));
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return null;
 	}
 }
