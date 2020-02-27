@@ -22,6 +22,7 @@ import model.giocatore1;
 
 @WebServlet("/auction")
 public class Auction extends HttpServlet {
+	
 	private static final long serialVersionUID = 2L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,6 +50,12 @@ public class Auction extends HttpServlet {
 					
 					ArrayList<Giocatore> giocatori = (ArrayList<Giocatore>) GiocatoreDao.getInstance().findAll();
 					request.getSession().setAttribute("giocatori", giocatori);
+					if(request.getSession().getAttribute("summary")!=null)
+					{	
+						RequestDispatcher rd = request.getRequestDispatcher("/auction?key=fine");
+						rd.forward(request, response);
+						return;
+					}
 					RequestDispatcher rd = request.getRequestDispatcher("/waitingroom.jsp");
 					rd.forward(request, response);
 					return;
@@ -63,6 +70,8 @@ public class Auction extends HttpServlet {
 				}
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("fine")) {
 					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
+					if((boolean) request.getSession().getAttribute("admin"))
+						AstaDao.getInstance().setCurrentPlayer(-1, squadra.getIdAsta());
 					request.getSession().setAttribute("giocatori_squadra", SquadraDao.getInstance().tabella(squadra.getIdAsta()));
 					RequestDispatcher rd = request.getRequestDispatcher("/summary.jsp");
 					rd.forward(request, response);
@@ -74,6 +83,23 @@ public class Auction extends HttpServlet {
 					RequestDispatcher rd = request.getRequestDispatcher("/faq.html");
 					rd.forward(request, response);
 					return;
+				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("summary")) {
+					if(request.getSession().getAttribute("squadra")==null) {
+						request.getSession().setAttribute("summary", "per visualizzare il riepilogo è necessario accedere ad un'asta e selezionare la tua squadra");
+						RequestDispatcher rd = request.getRequestDispatcher("/auction?key=partecipa");
+						rd.forward(request, response);
+						return;
+					}
+					RequestDispatcher rd = request.getRequestDispatcher("/auction?key=fine");
+					rd.forward(request, response);
+					return;
+						
+					
+				}
+				if(request.getSession().getAttribute("summary")!=null)
+				{
+					request.getSession().setAttribute("summary", null);
 				}
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 				rd.forward(request, response);
@@ -193,7 +219,10 @@ public class Auction extends HttpServlet {
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("syncro")) {
 					LinkedList<Squadra> squadre = extracted(request);
 					int currentPlayer = (int) request.getSession().getAttribute("currentPlayer");
-					
+					if(currentPlayer==-1) {
+						response.getWriter().print("end");
+						return;
+					}	
 					if(AstaDao.getInstance().getCurrentPlayer(squadre.get(0).getIdAsta())!=currentPlayer) {
 							if(equals(squadre, (LinkedList<Squadra>) SquadraDao.getInstance().findAll(squadre.get(0).getIdAsta())))
 							{	response.getWriter().print("skip");
@@ -205,8 +234,6 @@ public class Auction extends HttpServlet {
 					}
 					return;
 				}
-				
-
 				doGet(request, response);
 			}
 	@SuppressWarnings("unchecked")

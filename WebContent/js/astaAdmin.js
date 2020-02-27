@@ -6,7 +6,6 @@ function skip(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	    	console.log("resposnseTEXT=", xhttp.responseText);
 	    	document.getElementById("currentPlayer").innerHTML= xhttp.responseText;
 			}
 		};
@@ -18,7 +17,6 @@ function refresh(selected){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	    	console.log("resposnseTEXT=", xhttp.responseText);
 	    	document.getElementById(selected).innerHTML= xhttp.responseText;
 			}
 		};
@@ -50,7 +48,6 @@ function syncro(){
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
 	    	var element = xhttp.responseText.split(",");
-	    	console.log("resposnseTEXT=", xhttp.responseText);
 	    	document.getElementById(element[0]).innerHTML= element[1];
 	    	document.getElementById("auction_listener").innerHTML = element[2];
 			}
