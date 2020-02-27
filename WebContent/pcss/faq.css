@@ -89,13 +89,13 @@ a{color:#fff210; text-decoration: none; display: inline-block; width:33%;text-al
             word-spacing: -0.8px;
             color: #000000;
             font-weight: 400;
-            text-decoration: none solid rgb(68, 68, 68);
+           
             font-style: normal;
             font-variant: small-caps;
             text-transform: capitalize;
       
   }
-  .panel{display: none; padding:0; margin: 47px ;background-color: rgba(201, 76, 76, .5); }
+  .panel{display: none; padding:0; margin: 47px ;background-color: #fff8dc; }
   .panel.active{display: block}
    li.active{background: #373 }
   .li{margin-bottom: 30px; margin-top:30px;}
