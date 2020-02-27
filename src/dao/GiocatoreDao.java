@@ -82,17 +82,16 @@ public class GiocatoreDao {
 		try {
 			connection = this.dataSource.getConnection();
 			PreparedStatement statement;
-			String query = "select nome, cognome, prezzo \r\n" + 
-					"from giocatore_squadra, giocatore \r\n" + 
-					"where idsquadra=? and idasta=? and id=idgiocatore \r\n" + 
-					"order by ruolo asc, cognome desc\r\n" + 
+			String query = "select g.nome as nome, g.cognome as cognome, gs.prezzo as prezzo, s.nome as nomeSquadra, s.id as idSquadra, s.crediti as crediti \r\n" + 
+					"from giocatore_squadra gs, giocatore g, squadra s \r\n" + 
+					"where s.id= gs.idsquadra and gs.idasta=? and gs.idasta=s.idasta and g.id=idgiocatore \r\n" + 
+					"order by g.ruolo asc, g.cognome desc\r\n" + 
 					"limit 1";
 			statement = connection.prepareStatement(query);
-			statement.setInt(1, squadra.getId());
-			statement.setInt(2, squadra.getIdAsta());
+			statement.setInt(1, squadra.getIdAsta());
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
-				return new giocatore1(result.getString("nome"), result.getString("cognome"), result.getInt("prezzo"));
+				return new giocatore1(result.getString("nome"), result.getString("cognome"), result.getInt("prezzo"), result.getString("nomeSquadra"), result.getInt("idSquadra"), result.getInt("crediti"));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

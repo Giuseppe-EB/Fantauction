@@ -82,7 +82,7 @@ public class SquadraDao {
 		try {
 			connection = this.dataSource.getConnection();
 			PreparedStatement statement;
-			String query = "select id from squadra where idAsta=? and connected=true";
+			String query = "select id from squadra where idAsta=? and connected=true order by id";
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, id);
 			ResultSet result = statement.executeQuery();

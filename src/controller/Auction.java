@@ -63,7 +63,8 @@ public class Auction extends HttpServlet {
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("check")) {
 					ArrayList<Giocatore> giocatori = (ArrayList<Giocatore>) GiocatoreDao.getInstance().findAll();
 					request.getSession().setAttribute("giocatori", giocatori);
-					request.getSession().setAttribute("currentPlayer", 0);
+					int i=0;
+					request.getSession().setAttribute("currentPlayer", i);
 					RequestDispatcher rd = request.getRequestDispatcher("/auction.jsp");
 					rd.forward(request, response);
 					return;
@@ -204,13 +205,12 @@ public class Auction extends HttpServlet {
 				}
 
 				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("refreshS")) {
-					LinkedList<Squadra> squadre = extracted(request);
-					Squadra squadra = modify(squadre, (LinkedList<Squadra>) SquadraDao.getInstance().findAll(squadre.get(0).getIdAsta()));
+					Squadra squadra = (Squadra) request.getSession().getAttribute("squadra");
 					giocatore1 giocatore = GiocatoreDao.getInstance().getLastBuying(squadra);
 					response.getWriter()
-						.print(squadra.getId()+ "," 
-								+squadra.getCrediti()+ "," 
-									+"La Squadra "+ squadra.getNome() 
+						.print(giocatore.getId()+ "," 
+								+giocatore.getCrediti()+ "," 
+									+"La Squadra "+ giocatore.getSquadra() 
 										+" ha acquistato" +giocatore.getNome() 
 											+ "&#32;" + giocatore.getCognome() 
 												+ "per " + giocatore.getPrezzo() + ".");

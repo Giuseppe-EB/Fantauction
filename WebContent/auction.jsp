@@ -248,8 +248,9 @@ if("${admin}"=="false"){
 		    	if(xhttp.responseText=="skip")
 		    		skip();
 		    	else if(xhttp.responseText=="refresh")
-		    	{	skip();
+		    	{	
 		    		syncro();
+		    		skip();
 		    	}
 		    	else if(xhttp.responseText=="end")
 		    		fine();
