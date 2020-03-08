@@ -98,6 +98,12 @@ public class Auction extends HttpServlet {
 						
 					
 				}
+				else if(request.getParameter("key")!=null&&request.getParameter("key").equalsIgnoreCase("voti")) {
+					request.getSession().setAttribute("juveinter", GiocatoreDao.getInstance().JuveInter());
+					RequestDispatcher rd = request.getRequestDispatcher("/ProvaVoti.jsp");
+					rd.forward(request, response);
+					return;
+				}	
 				if(request.getSession().getAttribute("summary")!=null)
 				{
 					request.getSession().setAttribute("summary", null);

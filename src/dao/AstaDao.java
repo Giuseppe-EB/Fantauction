@@ -14,7 +14,7 @@ public class AstaDao {
 	private AstaDao() {
 		try {
 			Class.forName("org.postgresql.Driver").newInstance();
-			dataSource=new DataSource("jdbc:postgresql://rogue.db.elephantsql.com:5432/rjzafrnh","rjzafrnh","a4FVbMrfxMeTqhbxaXHtuvyOn_WKgWyw");
+			dataSource=new DataSource("jdbc:postgresql://localhost:5432/SitoAsta","postgres","Accettare7");
 		} catch (Exception e) {
 			System.out.println("MySQLDAOFactory.class: failed to load MySQL JDBC driver\n" + e);
 			e.printStackTrace();

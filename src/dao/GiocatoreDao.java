@@ -18,7 +18,7 @@ public class GiocatoreDao {
 	private GiocatoreDao() {
 		try {
 			Class.forName("org.postgresql.Driver").newInstance();
-			dataSource=new DataSource("jdbc:postgresql://rogue.db.elephantsql.com:5432/rjzafrnh","rjzafrnh","a4FVbMrfxMeTqhbxaXHtuvyOn_WKgWyw");
+			dataSource=new DataSource("jdbc:postgresql://localhost:5432/SitoAsta","postgres","Accettare7");
 		} catch (Exception e) {
 			System.out.println("MySQLDAOFactory.class: failed to load MySQL JDBC driver\n" + e);
 			e.printStackTrace();
@@ -103,5 +103,34 @@ public class GiocatoreDao {
 			}
 		}
 		return null;
+	}
+	public List<String> JuveInter() {
+		Connection connection = null;
+		List<String> giocatori = new ArrayList<>();
+		try {
+			connection = this.dataSource.getConnection();
+			PreparedStatement statement;
+			String query = "select cognome from giocatore, partita \r\n" + 
+					"where (squadra=home or squadra = away) \r\n" + 
+					"and( 	cognome = 'Dybala' or cognome = 'Martinez' or\r\n" + 
+					"		cognome = 'Bentancur' or cognome = 'Brozovic' or\r\n" + 
+					"   		cognome = 'de Ligt' or cognome = 'de Vrij' or\r\n" + 
+					"   		cognome = 'Szczesny' or cognome = 'Handanovic')\r\n" + 
+					"order by ruolo desc, cognome asc";
+			statement = connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				giocatori.add(result.getString("cognome"));
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return giocatori;
 	}
 }
